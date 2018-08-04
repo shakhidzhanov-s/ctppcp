@@ -1,0 +1,30 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}{{page.pagename}}{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/pages.css" %}">
+{% endblock %}
+
+{% block links %}
+{% for p in page_list %}
+{% if p.pagename == page.pagename %}
+<a class="activelink" href="/ru/pages/{{p.pagename}}">{{p.pagename}}</a>
+{% else %}
+<a class="link" href="/ru/pages/{{p.pagename}}">{{p.pagename}}</a>
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">{{page.pagename}}</h1>
+  <div class="description clearfix">
+  {{page.pagetext|safe}}
+  </div>
+</div>
+{% endblock %}

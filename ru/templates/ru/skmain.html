@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>{{institute.name|striptags}}</title>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400,600,700" rel="stylesheet" type="text/css">
+  {% block loads %}
+  loads here
+  {% endblock %}
+</head>
+<body class="body page-news clearfix">
+
+  <header class="header clearfix">
+  
+    <div class="top clearfix">
+      <a href="/ru"><h1 class="title">{{institute.name|safe}}</h1></a>
+      <div class="panel clearfix">
+        <a class="link" href="/en">en</a>
+      </div>
+    </div>
+	
+    <div class="buttons">
+      <div class="main clearfix">
+        <div class="dropdown clearfix">
+          <a class="dis" href="/ru"><button class="button">Главная страница</button></a>
+        </div>
+        <div class="dropdown clearfix">
+          <a class="dis" href="/ru/news"><button class="button">Новости</button></a>
+          <div class="dropdown-content">
+              <a href="/ru/news">Новости и события</a>
+              <a href="/ru/news/positions">Вакансии</a>
+            </div>
+        </div>
+		    <div class="dropdown clearfix">
+          <a class="dis" href="/ru/center"><button class="button">О Центре</button></a>
+          <div class="dropdown-content">
+            <a href="/ru/center">Миссия центра</a>
+            <a href="/ru/center/history">История центра</a>
+            <a href="/ru/center/contacts">Контакты</a>
+            <a href="/ru/center/maindocs">Основные документы</a>
+            <a href="/ru/center/reports">Планы и отчеты НИР</a>
+            <a href="/ru/center/attestation">Аттестация сотрудников</a>
+            <a href="/ru/center/fazly">Школа Фазли</a>
+          </div>
+        </div>
+		    <div class="dropdown clearfix">
+          <a class="dis" href="/ru/structure"><button class="button">Структура центра</button></a>
+          <div class="dropdown-content">
+            <a href="/ru/structure">Лаборатории</a>
+            <a href="/ru/structure/staff">Администрация</a>
+          </div>
+        </div>
+		    <div class="dropdown clearfix">
+          <a class="dis" href="/ru/research"><button class="button">Наука</button></a>
+          <div class="dropdown-content">
+            <a href="/ru/research">Научные направления</a>
+            <a href="/ru/research/etics">НЭК</a>
+            <a href="/ru/research/senate">Ученый совет</a>
+            <a href="/ru/research/publications">Публикации</a>
+          </div>
+        </div>
+		    <div class="dropdown clearfix">
+          <a class="dis" href="/ru/education"><button class="button">Образование</button></a>
+          <div class="dropdown-content">
+            <a href="/ru/education">Лекции для студентов</a>
+            <a href="/ru/education/phd">Аспирантура</a>
+          </div>
+        </div>
+        <div class="mobiledropdown clearfix">
+          <button id="mobileButton" onclick="myFunction()" class="mbutton">Меню</button>
+          <div id="myDropdown" class="mobiledropdown-content">
+            <a href="/ru">Главная страница</a>
+            <a href="/ru/news">Новости</a>
+            <a href="/ru/center">О Центре</a>
+            <a href="/ru/structure">Структура центра</a>
+			      <a href="/ru/research">Наука</a>
+			      <a href="/ru/education">Образование</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+  </header>
+
+  {% block site %}site here{% endblock %}
+	
+  <script>
+    window.onload = function Resize() {
+      var body = document.body, html = document.documentElement
+      var height = Math.max(body.scrollHeight,body.offsetHeight,html.clientHeight,html.scrollHeight,html.offsetHeight);
+      var site = document.getElementsByClassName("site");
+      if (height-216>650){site[0].style.height = (height-216).toString()+"px";}
+      else {site[0].style.height = '650px';}
+    }
+  </script>
+
+  <div class="footer clearfix">
+    <div class="main clearfix">
+      {% if institute.link1Title != '' %}
+      <a class="link" href="{{institute.link1Link}}">{{institute.link1Title}}</a>
+      {% endif %}
+      {% if institute.link2Title != '' %}
+      <a class="link" href="{{institute.link2Link}}">{{institute.link2Title}}</a>
+      {% endif %}
+      {% if institute.link3Title != '' %}
+      <a class="link" href="{{institute.link3Link}}">{{institute.link3Title}}</a>
+      {% endif %}
+      {% if institute.link4Title != '' %}
+      <a class="link" href="{{institute.link4Link}}">{{institute.link4Title}}</a>
+      {% endif %}
+      <p class="text">&#169; {{institute.nameLittle}}</p>
+    </div>
+  </div>
+
+  <script>
+    /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("showD");
+      document.getElementById("mobileButton").classList.toggle("showA");
+    }
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.mbutton')) {
+        var dropdowns = document.getElementsByClassName("mobiledropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+
+  <script>
+    var timeOutId = null;
+    var slideIndex = 0;
+    plusSlides(1);
+
+    function Auto() {
+      showSlides(slideIndex += 1);
+      timeOutId = setTimeout(Auto, 15000);
+    }
+    
+    function plusSlides(n) {
+      if(timeOutId != null) {clearTimeout(timeOutId);}
+      showSlides(slideIndex += n);
+      timeOutId = setTimeout(Auto, 15000);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("slide");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+      slides[slideIndex-1].style.display = "block";  
+    }
+  </script>
+
+  <script>
+    function hasTouch() {return 'ontouchstart' in document.documentElement 
+      || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;}
+
+    if (hasTouch()) {
+      var dises = document.getElementsByClassName("dropdown-content");
+      for (i = 0; i < dises.length; i++) {dises[i].style.display = "none";}
+    }
+  </script>
+
+</body>
+</html>

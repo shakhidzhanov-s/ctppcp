@@ -1,0 +1,25 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}Аспирантура{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/phd.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/ru/education">Лекции для студентов</a>
+<a class="activelink" href="/ru/education/phd">Аспирантура</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Аспирантура</h1>
+  <div class="description clearfix">
+  {{phd.about|safe}}
+  </div>
+</div>
+{% endblock %}

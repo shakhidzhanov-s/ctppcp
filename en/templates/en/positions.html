@@ -1,0 +1,35 @@
+{% extends "en/skeleton.html" %}
+
+{% block title %}Open Positions{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "en/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "en/css/positions.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/en/news">News &amp; Events</a>
+<a class="activelink" href="/en/news/positions">Open Positions</a>
+{% endblock %}
+
+{% block site %}
+<div class="news clearfix">
+  <h1 class="title title-1">Open Positions:</h1>
+  {% if position_list %}
+  {% for event in position_list %}
+  <div class="event clearfix">
+    <h3 class="date">{{event.date}}</h3>
+    <h2 class="title">{{event.title}}</h2>
+    <p class="text">{{event.text|safe}}</p>
+  </div>
+  {% endfor %}
+  {% else %}
+  <div class="event clearfix">
+    <h2 class="title">No open positions are available now.</h2>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

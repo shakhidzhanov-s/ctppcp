@@ -1,0 +1,26 @@
+{% extends "en/skeleton.html" %}
+
+{% block title %}Mission{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "en/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "en/css/mission.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="activelink" href="/en/center">Mission</a>
+<a class="link" href="/en/center/history">History</a>
+<a class="link" href="/en/center/contacts">Contacts</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Mission</h1>
+  <div class="description clearfix">
+  {{institute.mission|safe}}
+  </div>
+</div>
+{% endblock %}

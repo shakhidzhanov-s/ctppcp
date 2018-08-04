@@ -1,0 +1,84 @@
+{% extends "en/skmain.html" %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "en/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skmain.css" %}">
+<link rel="stylesheet" href="{% static "en/css/main.css" %}">
+{% endblock %}
+</head>
+
+{% block site %}
+<div class="site clearfix">
+
+  <div class="top clearfix">
+    <div class="slides clearfix">
+    {% for image in image_list %}
+      <div class="slide fade">
+        <img class="picture" src="{{ image.image.url }}" alt="image">
+        <p class="caption">{{ image.caption }}</p>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    {% endfor %}
+    </div>
+    <div class="mission clearfix">
+      <h1 class="title">Our mission</h1>
+      <p class="text">{{institute.mission|striptags|truncatewords:60}}</p>
+      <p class="more"><a href="/en/center">Read more »</a></p>
+    </div>
+  </div>
+
+  <div class="bottom clearfix">
+    <div class="left clearfix">
+    <div class="news clearfix">
+      <h1 class="title">News &amp; Events</h1>
+      {% if latest_news_list %}
+      {% for event in latest_news_list %}
+      <div class="event">
+        <h3 class="date">{{event.date}}</h3>
+        <h2 class="name">{{event.title}}</h2>
+        <p class="text">{{event.text|safe|truncatewords:30}} <a href="/en/news/#n{{event.rid}}">Read more »</a></p>
+      </div>
+      {% endfor %}
+      {% else %}
+      <div class="event clearfix">
+        <h2 class="name">No news are available</h2>
+      </div>
+      {% endif %}
+      <p class="more"><a href="/en/news">Read more »</a></p>
+    </div>
+    </div>
+
+    <div class="right clearfix">
+    <div class="research clearfix">
+      <h1 class="title">Research</h1>
+      {% if area_list %}
+      {% for area in area_list %}
+      <div class="area clearfix">
+        <h2 class="name">{{area.title}}</h2>
+        {% for pi in area.prinvestigator_set.all %}
+        <p class="investigator"><a href="/en/research/{{pi.nick}}">{{pi.rang}} {{pi.firstname}} {{pi.lastname}}</a></p>
+        {% endfor %}
+      </div>
+      {% endfor %}
+      {% else %}
+      <div class="area clearfix">
+        <h2 class="title">No areas are available</h2>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="education clearfix">
+        <h1 class="title">Education</h1>
+        <div class="links clearfix">
+          <p class="edulink"><a href="/en/education">Lectures for Students</a></p>
+          <p class="edulink"><a href="/en/education/phd">PhD Programm</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>{% block title %}skeleton{% endblock %}</title>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400,600,700" rel="stylesheet" type="text/css">
+  {% block loads %}
+  loads here
+  {% endblock %}
+</head>
+<body class="body page-news clearfix">
+
+  <header class="header clearfix">
+  
+    <div class="top clearfix">
+      <a href="/en"><h1 class="title">{{institute.name|safe}}</h1></a>
+      <div class="panel clearfix">
+        <a class="link" href="/ru">ru</a>
+      </div>
+    </div>
+	
+    <div class="buttons">
+      <div class="main clearfix">
+        <div class="dropdown clearfix">
+          <a href="/en"><button class="button">Home</button></a>
+        </div>
+        <div class="dropdown clearfix">
+          <a href="/en/news"><button class="button">News &amp; Events</button></a>
+          <div class="dropdown-content">
+            <a href="/en/news">News &amp; Events</a>
+            <a href="/en/news/positions">Open Positions</a>
+          </div>
+        </div>
+        <div class="dropdown clearfix">
+          <a href="/en/center"><button class="button">The Center</button></a>
+          <div class="dropdown-content">
+            <a href="/en/center">Mission</a>
+            <a href="/en/center/history">History</a>
+            <a href="/en/center/contacts">Contacts</a>
+          </div>
+        </div>
+        <div class="dropdown clearfix">
+          <a href="/en/structure"><button class="button">Structure</button></a>
+          <div class="dropdown-content">
+            <a href="/en/structure">Laboratories</a>
+            <a href="/en/structure/staff">Staff</a>
+          </div>
+        </div>
+        <div class="dropdown clearfix">
+          <a href="/en/research"><button class="button">Research</button></a>
+          <div class="dropdown-content">
+            <a href="/en/research">Research Groups</a>
+            <a href="/en/research/publications">Publications</a>
+          </div>
+        </div>
+        <div class="dropdown clearfix">
+          <a href="/en/education"><button class="button">Education</button></a>
+          <div class="dropdown-content">
+            <a href="/en/education">Lectures for Students</a>
+            <a href="/en/education/phd">PhD Program</a>
+          </div>
+        </div>
+        <div class="mobiledropdown clearfix">
+          <button id="mobileButton" onclick="myFunction()" class="mbutton">Menu</button>
+          <div id="myDropdown" class="mobiledropdown-content">
+            <a href="/en">Home</a>
+            <a href="/en/news">News &amp; Events</a>
+            <a href="/en/center">The Center</a>
+            <a href="/en/structure">Structure</a>
+            <a href="/en/research">Research</a>
+            <a href="/en/education">Education</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+  </header>
+
+  <div class="site">
+      <div class="main clearfix">
+        <div class="left clearfix">
+          <div class="nav clearfix">
+            <div class="links clearfix">
+              {% block links %}links here{% endblock %}
+            </div>
+          </div>
+        </div>
+        <div class="middle">
+        {% block site %}site here{% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+	
+  <script>
+    window.onload = function Resize() {
+      var body = document.body, html = document.documentElement
+      var height = Math.max(body.scrollHeight,body.offsetHeight,html.clientHeight,html.scrollHeight,html.offsetHeight);
+      var site = document.getElementsByClassName("site");
+      if (height-216>650){site[0].style.height = (height-216).toString()+"px";}
+      else {site[0].style.height = '650px';}
+    }
+  </script>
+
+  <div class="footer clearfix">
+    <div class="main clearfix">
+      {% if institute.link1Title != '' %}
+      <a class="link" href="{{institute.link1Link}}">{{institute.link1Title}}</a>
+      {% endif %}
+      {% if institute.link2Title != '' %}
+      <a class="link" href="{{institute.link2Link}}">{{institute.link2Title}}</a>
+      {% endif %}
+      {% if institute.link3Title != '' %}
+      <a class="link" href="{{institute.link3Link}}">{{institute.link3Title}}</a>
+      {% endif %}
+      {% if institute.link4Title != '' %}
+      <a class="link" href="{{institute.link4Link}}">{{institute.link4Title}}</a>
+      {% endif %}
+      <p class="text">&#169; {{institute.nameLittle}}</p>
+    </div>
+  </div>
+
+  <script>
+    /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("showD");
+      document.getElementById("mobileButton").classList.toggle("showA");
+    }
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.mbutton')) {
+  
+        var dropdowns = document.getElementsByClassName("mobiledropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+
+  <script>
+    function hasTouch() {return 'ontouchstart' in document.documentElement 
+      || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;}
+
+    if (hasTouch()) {
+      var dises = document.getElementsByClassName("dropdown-content");
+      for (i = 0; i < dises.length; i++) {dises[i].style.display = "none";}
+    }
+  </script>
+
+</body>
+</html>

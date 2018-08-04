@@ -1,0 +1,36 @@
+{% extends "en/skeleton.html" %}
+
+{% block title %}Research Groups{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "en/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "en/css/research.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="activelink" href="/en/research">Research</a>
+<a class="link" href="/en/research/publications">Publications</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Research Groups</h1>
+  {% for area in area_list %}
+  <div class="area clearfix">
+    <p class="name">{{area.title}}</p>
+    {% for person in area.prinvestigator_set.all %}
+    <div class="group clearfix">
+      <div class="description clearfix">
+        <h2 class="pi"><img class="image" src="{{ person.photo.url }}" alt="photo">{{person.position}} {{person.firstname}} {{person.lastname}}</h2>
+        <h3 class="little">{{person.research.title}}</h3>
+        <p class="text">{{person.research.little}} <a href="/en/research/{{person.nick}}">Read more »</a></p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

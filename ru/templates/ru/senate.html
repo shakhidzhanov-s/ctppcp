@@ -1,0 +1,27 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}Ученый совет{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/senate.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/ru/research">Научные направления</a>
+<a class="link" href="/ru/research/etics">НЭК</a>
+<a class="activelink" href="/ru/research/senate">Ученый совет</a>
+<a class="link" href="/ru/research/publications">Публикации</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Ученый совет</h1>
+  <div class="description clearfix">
+  {{senate.text|safe}}
+  </div>
+</div>
+{% endblock %}

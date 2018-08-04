@@ -1,0 +1,243 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font: 400 1em/1.38 'Open Sans';
+  color: rgb(0, 0, 0);
+}
+
+.site {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-width: 650px;
+  padding-bottom: 100px;
+  background-color: #eaecee;
+}
+  
+.site .main {
+  position: relative;
+  margin: 0 auto;
+  min-height: 500px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+}
+  
+.site .left {
+  position: absolute;
+  float: left;
+  width: 21%;
+  height: 100%;
+  background-color: #f3fafd;
+}
+  
+.site .left .nav {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+  
+.site .nav .links {
+  position: relative;
+  margin-left: 10%;
+  width: 90%;
+  margin-top: 50px;
+  margin-left: 10%;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+  
+.site .nav .link {
+  display: block;
+  width: 100%;
+  margin: 1px auto 0;
+  font-size: 1em;
+  font-weight: 600;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  color: #1f407a;
+  background-color: rgb(255, 255, 255, 0);
+}
+
+.site .nav .activelink {
+  display: block;
+  width: 100%;
+  margin: 1px auto 0;
+  font-size: 1em;
+  font-weight: 600;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  background-color: #d40026;
+  color: #ffffff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+  z-index: 1;
+}
+  
+.site .middle {
+  position: relative;
+  float: right;
+  width: 78%;
+  height: 100%;
+}
+
+.site .middle .profile {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  background-color: rgb(255, 255, 255);
+}
+
+.site .profile .name {
+  width: 89.9996336191%;
+  margin: 50px auto;
+  padding-bottom: 20px;
+  font-size: 1.875em;
+  font-weight: 600;
+  color: #1f407a;
+}
+
+.site .profile .toppart {
+  position: relative;
+  width: 89.9996336191%;
+  margin: 10px auto;
+  padding-bottom: 15px;
+}
+
+.site .profile .pic {
+  float: left;
+  width: 150px;
+  max-width: 150px;
+  height: 200px;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.site .profile .information {
+  position: relative;
+  float: left;
+  width: 67%;
+  padding-left:10px;
+}
+
+.site .profile .toppart .information .title {
+  float: left;
+  width: 100%;
+  font-weight: 600;
+  padding-bottom: 15px;
+  font-size: 1.25em;
+  color: #1f407a;
+}
+
+.site .profile .toppart .information .link {
+  float: left;
+  width: 100%;
+  font-size: 1em;
+  font-weight: 600;
+  padding-bottom: 7px;
+}
+
+.site .profile .description {
+  position: relative;
+  width: 89.9996336191%;
+  margin: 10px auto;
+  padding-bottom: 15px;
+}
+
+.site .middle .description .title_big {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #1f407a;
+}
+  
+.site .middle .description .title_medium {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: 600;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  font-size: 1.25em;
+  color: #1f407a;
+}
+  
+.site .middle .description .title_small {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: 600;
+  padding-bottom: 5px;
+  font-size: 1em;
+  color: #000000;
+}
+  
+.site .middle .description .text {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+}
+
+.site .middle .description .text .leftimage {
+  float: left;
+  max-width: 300px;
+  object-fit: cover;
+  margin: 4px 7px 0px 0px
+}
+  
+.site .middle .description .figure {
+  position: relative;
+  width: 100%;
+  margin: 15px auto 0;
+  padding-bottom: 15px;
+}
+  
+.site .middle .description .figure .image {
+  width: 100%;
+  max-width: 1100px;
+  object-fit: cover;
+}
+  
+.site .middle .description .figure .caption {
+  width: 100%;
+  margin: 10px auto 0;
+  font-size: 0.875em;
+  color: #6a7277;
+}
+
+.site .middle a:link {
+  color: #0072a4;
+  font-weight: 600;
+}
+
+.site .middle a:active {
+  color: #d40026;
+  font-weight: 600;
+}
+
+.site .middle a:visited {
+  color: #0072a4;
+  font-weight: 600;
+}
+
+.site .middle a:hover {
+  color: #d40026;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1120px) {
+  .main {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .main {
+    width: 1100px;
+  }
+}

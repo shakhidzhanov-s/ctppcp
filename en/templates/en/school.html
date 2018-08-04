@@ -1,0 +1,32 @@
+{% extends "en/skeleton.html" %}
+
+{% block title %}Summer School {{school.date|date:'Y'}}{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "en/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "en/css/school.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/en/education">Courses</a>
+{% for s in school_list %}
+{% if s.date == school.date %}
+<a class="activelink" href="/en/education/school/{{s.date|date:'Y'}}">Summer School {{s.date|date:'Y'}}</a>
+{% else %}
+<a class="link" href="/en/education/school/{{s.date|date:'Y'}}">Summer School {{s.date|date:'Y'}}</a>
+{% endif %}
+{% endfor %}
+<a class="link" href="/en/education/phd">PhD Program</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Summer School {{school.date|date:'Y'}}</h1>
+  <div class="description clearfix">
+  {{school.about|safe}}
+  </div>
+</div>
+{% endblock %}

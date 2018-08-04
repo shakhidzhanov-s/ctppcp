@@ -1,0 +1,50 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}Аттестация сотрудников{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/attestation.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/ru/center">Миссия центра</a>
+<a class="link" href="/ru/center/history">История центра</a>
+<a class="link" href="/ru/center/contacts">Контакты</a>
+<a class="link" href="/ru/center/maindocs">Основные документы</a>
+<a class="link" href="/ru/center/reports">Планы и отчеты НИР</a>
+<a class="activelink" href="/ru/center/attestation">Аттестация сотрудников</a>
+<a class="link" href="/ru/center/fazly">Школа Фазли</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Аттестация сотрудников:</h1>
+  <div class="tab clearfix">
+    {% for y in years %}
+    <h3 class="year">{{y|date:'Y'}}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Дата</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for report in r_list  %}
+        {% if report.date|date:"Y" == y|date:'Y' %}
+        <tr>
+          <td><a href="{{report.document.url}}">{{report.title}} ({{report.document.size|filesizeformat}})</a></td>
+          <td width="100px">{{report.date|date:"d.m.Y"}}</td> 
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

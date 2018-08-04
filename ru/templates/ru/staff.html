@@ -1,0 +1,35 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}Администрация{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/staff.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/ru/structure">Лаборатории</a>
+<a class="activelink" href="/ru/structure/staff">Администрация</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Администрация:</h1>
+  {% for person in staff_list %}
+  <div class="group clearfix">
+    <img class="image" src="{{ person.photo.url }}" alt="photo">
+    <div class="description clearfix">
+      <h2 class="pi">{{person.firstname}} {{person.lastname}}</h2>
+      {% if person.rang != "" %}
+      <p class="text"><b>{{person.rang}}</b></p>
+      {% endif %}
+      <p class="text">{{person.position}}</p>
+      <a class="link" href="#">{{person.email}}</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

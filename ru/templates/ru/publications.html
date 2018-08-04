@@ -1,0 +1,45 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}Публикации{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/publications.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/ru/research">Научные направления</a>
+<a class="link" href="/ru/research/etics">НЭК</a>
+<a class="link" href="/ru/research/senate">Ученый совет</a>
+<a class="activelink" href="/ru/research/publications">Публикации</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Публикации:</h1>
+  <div class="tab clearfix">
+    {% for y in years %}
+    <h3 class="year">{{y|date:'Y'}}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for publication in p_list  %}
+        {% if publication.date|date:"Y" == y|date:'Y' %}
+        <tr>
+          <td><b>{{publication.title}}</b> {{publication.authors}} <i>{{publication.journal}}</i> {{publication.date|date:"Y"}}; {{publication.volume}}: {{publication.pages}}. <a href="https://www.ncbi.nlm.nih.gov/pubmed/{{publication.pubmed}}">Pubmed</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

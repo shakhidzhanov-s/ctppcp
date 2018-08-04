@@ -1,0 +1,39 @@
+{% extends "en/skeleton.html" %}
+
+{% block title %}News{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "en/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "en/css/news.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="activelink" href="/en/news">News &amp; Events</a>
+<a class="link" href="/en/news/positions">Open Positions</a>
+{% endblock %}
+
+{% block site %}
+<div class="news clearfix">
+  <h1 class="title title-1">News &amp; Events</h1>
+  {% if news_list %}
+  {% for event in news_list %}
+  <div id="n{{event.rid}}" class="event clearfix">
+    <h3 class="date">{{event.date}}</h3>
+    <h2 class="title">{{event.title}}</h2>
+    {% if event.photo %}
+    <p class="text"><img class="image" src="{{ event.photo.url }}" alt="photo">{{event.text|safe}}</p>
+    {% else %}
+    <p class="text">{{event.text|safe}}</p>
+    {% endif %}
+  </div>
+  {% endfor %}
+  {% else %}
+  <div class="event clearfix">
+    <h2 class="title">No news are available</h2>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

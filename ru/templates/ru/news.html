@@ -1,0 +1,39 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}Новости и события{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/news.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="activelink" href="/ru/news">Новости и события</a>
+<a class="link" href="/ru/news/positions">Вакансии</a>
+{% endblock %}
+
+{% block site %}
+<div class="news clearfix">
+  <h1 class="title title-1">Новости и события:</h1>
+  {% if news_list %}
+  {% for event in news_list %}
+  <div id="n{{event.rid}}" class="event clearfix">
+    <h3 class="date">{{event.date}}</h3>
+    <h2 class="title">{{event.title}}</h2>
+    {% if event.photo %}
+    <p class="text"><img class="image" src="{{ event.photo.url }}" alt="photo">{{event.text|safe}}</p>
+    {% else %}
+    <p class="text">{{event.text|safe}}</p>
+    {% endif %}
+  </div>
+  {% endfor %}
+  {% else %}
+  <div class="event clearfix">
+    <h2 class="title">Нет новостей</h2>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

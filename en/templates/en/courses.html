@@ -1,0 +1,46 @@
+{% extends "en/skeleton.html" %}
+
+{% block title %}Lectures for students{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "en/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "en/css/courses.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="activelink" href="/en/education">Lectures for Students</a>
+<a class="link" href="/en/education/phd">PhD Program</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Lectures for Students:</h1>
+  <div class="tab clearfix">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Semester</th>
+          <th>Year</th>
+          <th>Lecturer</th>
+          <th>Place</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for course in course_list  %}
+        <tr>
+          <td><a href="{{course.url}}">{{course.title}}</a></td>
+          <td>{{course.semester}}</td> 
+          <td>{{course.date|date:'Y'}}</td>
+          <td>{{course.lecturer|linebreaks}}</td>
+          <td>{{course.place}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

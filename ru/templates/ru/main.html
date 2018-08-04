@@ -1,0 +1,84 @@
+{% extends "ru/skmain.html" %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skmain.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/main.css" %}">
+{% endblock %}
+</head>
+
+{% block site %}
+<div class="site clearfix">
+
+  <div class="top clearfix">
+    <div class="slides clearfix">
+    {% for image in image_list %}
+      <div class="slide fade">
+        <img class="picture" src="{{ image.image.url }}" alt="image">
+        <p class="caption">{{ image.caption }}</p>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    {% endfor %}
+    </div>
+    <div class="mission clearfix">
+      <h1 class="title">Миссия центра</h1>
+      <p class="text">{{institute.mission|striptags|truncatewords:52}}</p>
+      <p class="more"><a href="/ru/center">Подробнее »</a></p>
+    </div>
+  </div>
+
+  <div class="bottom clearfix">
+    <div class="left clearfix">
+    <div class="news clearfix">
+      <h1 class="title">Новости</h1>
+      {% if latest_news_list %}
+      {% for event in latest_news_list %}
+      <div class="event">
+        <h3 class="date">{{event.date}}</h3>
+        <h2 class="name">{{event.title}}</h2>
+        <p class="text">{{event.text|safe|truncatewords:30}} <a href="/ru/news/#n{{event.rid}}">Подробнее »</a></p>
+      </div>
+      {% endfor %}
+      {% else %}
+      <div class="event clearfix">
+        <h2 class="name">Нет новостей</h2>
+      </div>
+      {% endif %}
+      <p class="more"><a href="/ru/news">Подробнее »</a></p>
+    </div>
+    </div>
+
+    <div class="right clearfix">
+    <div class="research clearfix">
+      <h1 class="title">Исследования</h1>
+      {% if area_list %}
+      {% for area in area_list %}
+      <div class="area clearfix">
+        <h2 class="name">{{area.title}}</h2>
+        {% for pi in area.prinvestigator_set.all %}
+        <p class="investigator"><a href="/ru/research/{{pi.nick}}">{{pi.rang}} {{pi.firstname}} {{pi.lastname}}</a></p>
+        {% endfor %}
+      </div>
+      {% endfor %}
+      {% else %}
+      <div class="area clearfix">
+        <h2 class="title">Нет областей исследования</h2>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="education clearfix">
+        <h1 class="title">Образование</h1>
+        <div class="links clearfix">
+          <p class="edulink"><a href="/ru/education">Лекции для студентов</a></p>
+          <p class="edulink"><a href="/ru/education/phd">Аспирантура</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,220 @@
+.header {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 185px;
+  min-width: 650px;
+  background-color: rgb(240, 245, 248);
+  font: 600 1.563em/0.5 'Open Sans';
+  color: #a22826;
+}
+
+.header .top {
+ min-width: 650px;
+  max-width: 1100px;
+  margin: 25px auto 0;
+}
+
+.header .top .title {
+  float: left;
+  width: 482px;
+  max-width: 482px;
+  height: 100px;
+  margin-left: 4%;
+  padding-left: 1px;
+  font-size: 1em;
+  text-align: center;
+  color: #a22826;
+}
+
+.header .top .panel {
+  float: right;
+  margin-right: 4%;
+  padding-right: 1px;
+  font-size: 0.7em;
+  color: #a22826;
+}
+
+.header .top .panel .link {
+  padding-right: 30px;
+  color: #a22826;
+}
+
+.header .top .title .institutename {
+  margin-bottom: 1em;
+}
+
+.header .buttons {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin: 10px auto 0;
+  background-color: #007197;
+}
+
+.header .buttons .main {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header .buttons .main .dropdown {
+  position: relative;
+  float: left;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.header .buttons .main .dropdown .button {
+  position: relative;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: block;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 0.72em;
+  line-height: 1.38;
+  color: rgb(255, 255, 255);
+}
+
+.header .buttons .main .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  margin-top:-1px;
+  min-width: 250px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+  z-index: 1;
+}
+
+.header .buttons .main .dropdown .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.72em;
+  line-height: 1.38;
+}
+
+.header .buttons .main .dropdown .dropdown-content a:hover {background-color: #ddd}
+
+.header .buttons .main .dropdown:hover .dropdown-content {display: block;}
+
+.header .buttons .main .dropdown:hover .button {background-color: #00567d;}
+
+.header .buttons .main .mobiledropdown {
+  position: relative;
+  float: left;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.header .buttons .main .mobiledropdown .mbutton {
+  position: relative;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: block;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 0.72em;
+  line-height: 1.38;
+  color: rgb(255, 255, 255);
+}
+
+.header .buttons .main .mobiledropdown .mobiledropdown-content {
+  display: none;
+  position: relative;
+  float: left;
+  background-color: #007197;
+  width: 100%;
+}
+
+.header .buttons .main .mobiledropdown .mobiledropdown-content a {
+  font-size: 0.72em;
+  line-height: 1.38;
+  color: rgb(255, 255, 255);
+  display: block;
+	padding: 6px 16px;
+  text-decoration: none;
+}
+
+.header .buttons .main .mobiledropdown .mobiledropdown-content a:hover {
+	background-color: #00567d
+}
+
+.header .buttons .main .mobiledropdown .showD {display:block;}
+
+
+.header .buttons .main .mobiledropdown .showA {color: rgb(200, 200, 200);}
+
+
+@media screen and (min-width: 0px) and (max-width: 820px) {
+	div.dropdown{
+	  display: none;
+	}
+	div.mobiledropdown{
+	  display: inline-block;
+	}
+	.buttons .main {
+		padding-left: 0;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 820px) {
+	div.dropdown{
+	  display: inline-block;
+	}
+	div.mobiledropdown{
+	  display: none;
+	}
+	.buttons .main {
+		padding-left: 2%;
+		width: 98.2142857142%;
+	}
+}
+
+.footer {
+  position: relative;
+  float: left;
+  clear: both;
+  width: 100%;
+  min-width: 650px;
+  background-color: rgb(77, 77, 77);
+  font: 600 1.563em/0.5 'Open Sans';
+}
+
+.footer .main {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer .main .link {
+  position: relative;
+  float: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 0.55em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  border-right: 1px solid rgb(255, 255, 255);
+}
+
+.footer .main .text {
+  position: relative;
+  float: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 0.55em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+}
+

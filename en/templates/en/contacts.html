@@ -1,0 +1,34 @@
+{% extends "en/skeleton.html" %}
+
+{% block title %}Contacts{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "en/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "en/css/contacts.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/en/center">Mission</a>
+<a class="link" href="/en/center/history">History</a>
+<a class="activelink" href="/en/center/contacts">Contacts</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="group">Contacts:</h1>
+  {% for contact in contact_list %}
+  <div class="contact clearfix">
+    <div class="text clearfix">
+      <h4 class="title">{{contact.title}}</h4>
+      <p class="address">{{contact.address|safe}}</p>
+    </div>
+    <div class="script">
+      {{contact.script|safe}}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

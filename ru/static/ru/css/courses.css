@@ -1,0 +1,161 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font: 400 1em/1.38 'Open Sans';
+  color: rgb(0, 0, 0);
+}
+  
+.site {
+  position: relative;
+  float: left;
+  width: 100%;  
+  min-width: 650px;
+  padding-bottom: 100px;
+  background-color: #eaecee;
+}
+  
+.site .main {
+  position: relative;
+  margin: 0 auto;
+  min-height: 500px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+}
+  
+.site .left {
+  position: absolute;
+  float: left;
+  width: 21%;
+  height: 100%;
+  background-color: #f3fafd;
+}
+  
+.site .left .nav {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+  
+.site .nav .links {
+  position: relative;
+  margin-left: 10%;
+  width: 90%;
+  margin-top: 50px;
+  margin-left: 10%;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+  
+.site .nav .link {
+  display: block;
+  width: 100%;
+  margin: 1px auto 0;
+  font-size: 1em;
+  font-weight: 600;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  color: #1f407a;
+  background-color: rgb(255, 255, 255, 0);
+}
+
+.site .nav .activelink {
+  display: block;
+  width: 100%;
+  margin: 1px auto 0;
+  font-size: 1em;
+  font-weight: 600;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  background-color: #d40026;
+  color: #ffffff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+  z-index: 1;
+}
+  
+.site .middle {
+  position: relative;
+  float: right;
+  width: 78%;
+  height: 100%;
+}
+
+.site .middle .overview {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  background-color: rgb(255, 255, 255);
+}
+
+.site .middle .overview .title {
+  width: 89.9996336191%;
+  margin: 50px auto 0;
+  padding-bottom: 20px;
+  font-size: 1.875em;
+  font-weight: 600;
+  color: #1f407a;
+}
+
+.site .middle .overview .tab {
+  position: relative;
+  width: 89.9996336191%;
+  margin: 0 auto;
+}
+
+.site .middle .overview .tab table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 15px auto 25px auto;
+  color: #000000;
+}
+  
+.site .middle .overview .tab th {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 3px solid #ddd;
+  font-weight: 600;
+  font-size: 1em;
+}
+  
+.site .middle .overview .tab td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.site .middle .overview .tab td a:link {
+  color: #007297;
+  font-weight: 600;
+}
+
+.site .middle .overview .tab td a:active {
+  color: #d40026;
+  font-weight: 600;
+}
+
+.site .middle .overview .tab td a:visited {
+  color: #007297;
+  font-weight: 600;
+}
+
+.site .middle .overview .tab td a:hover {
+  color: #d40026;
+  font-weight: 600;
+}
+  
+.site .middle .overview .tab tr:hover {
+  background-color:#f5f5f5;
+}
+
+@media screen and (max-width: 1120px) {
+  .main {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .main {
+    width: 1100px;
+  }
+}

@@ -1,0 +1,347 @@
+body {
+  	background-color: rgb(255, 255, 255);
+  	font: 400 1em/1.38 'Open Sans';
+  	color: rgb(0, 0, 0);
+}
+
+.site {
+  	position: relative;
+	float: left;
+  	width: 100%;
+  	min-width: 650px;
+	padding-bottom: 100px;
+    background-color: #eaecee;
+}
+
+.site .top {
+   	position: relative;
+   	max-width: 1100px;
+   	margin: 0 auto;  
+}
+
+.site .top .slides {
+  	position: relative;
+  	box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+}
+
+.site .top .slides .slide {
+	max-height: 500px;
+  	width: 100%;
+}
+
+.site .top .slides .slide .picture {
+	max-height: 500px;
+	object-fit: cover;
+}
+
+.site .top .slides .slide .caption {
+  	color: #f2f2f2;
+  	font-size: 1em;
+  	padding: 6px 6px;
+  	position: absolute;
+  	bottom: 0px;
+  	width: 100%;
+	text-align: center;
+	background-color: rgba(0,0,0,0.8);
+}
+
+.site .top .slides .slide .prev,
+.site .top .slides .slide .next {
+  	cursor: pointer;
+  	position: absolute;
+  	top: 50%;
+  	width: auto;
+  	margin-top: -22px;
+  	padding: 16px;
+  	color: white;
+  	font-weight: bold;
+  	font-size: 18px;
+  	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	background-color: rgba(0,0,0,0.2);
+}
+
+.site .top .slides .slide .next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+.site .top .slides .slide .prev:hover,
+  .site .top .slides .slide .next:hover {
+	background-color: rgba(0,0,0,0.8);
+}
+
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 0.5s;
+	animation-name: fade;
+	animation-duration: 0.5s;
+}
+  
+@-webkit-keyframes fade {
+	from {opacity: .8} 
+	to {opacity: 1}
+}
+  
+@keyframes fade {
+	from {opacity: .8} 
+	to {opacity: 1}
+}
+
+.site .top .mission {
+	position: relative;
+	width: 21.5%;
+	height: 500px;
+	float: right;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+}
+
+.site .top .mission .title {
+	position: relative;
+	width: 85%;
+	margin: 15px auto;
+	font-size: 1.875em;
+    color: #1f407a;
+}
+
+.site .top .mission .text {
+	position: relative;
+	width: 85%;
+	margin: 15px auto;
+	font-size: 1em;
+    color: rgb(0, 0, 0);
+}
+
+.site .top .mission .more {
+	position: relative;
+	width: 85%;
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	font-size: 1.25em;
+    font-weight: 600;
+}
+
+.site .bottom {
+	position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.site .bottom .left {
+	position: relative;
+	float: left;
+	margin-top: 17px;
+}
+
+.site .bottom .news {
+	width: 100%;
+	padding-bottom: 15px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+}
+
+.site .bottom .news .title {
+	position: relative;
+	width: 85%;
+	margin: 15px auto;
+	font-size: 1.875em;
+	padding-bottom: 5px;
+    color: #1f407a;
+}
+
+.site .bottom .news .event {
+    position: relative;
+    width: 85%;
+	margin: 15px auto;
+}
+
+.site .bottom .news .event .name {
+    width: 100%;
+    margin: 10px auto 0;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #1f407a;
+}
+
+.site .bottom .news .event .text {
+    width: 100%;
+    margin-top: 2px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.site .bottom .news .event .date {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 0.875em;
+    font-weight: 700;
+    color: #6a7277;
+}
+
+.site .bottom .news .more {
+	position: relative;
+	width: 85%;
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	font-size: 1.25em;
+    font-weight: 600;
+}
+
+.site .bottom .right {
+	position: relative;
+	float: left;
+	margin-top: 17px;
+	margin-left: 1.5%;
+}
+
+.site .bottom .research {
+	width: 100%;
+	padding-bottom: 15px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+}
+
+.site .bottom .research .title {
+	position: relative;
+	width: 85%;
+	margin: 15px auto;
+	padding-bottom: 5px;
+	font-size: 1.875em;
+    color: #1f407a;
+}
+
+.site .bottom .research .area {
+    position: relative;
+    width: 85%;
+	margin: 15px auto;
+}
+
+.site .bottom .research .area .name {
+    width: 100%;
+    padding-bottom: 5px;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #1f407a;
+}
+
+.site .bottom .research .area .investigator {
+    width: 100%;
+    margin: 5px auto 0;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.site .bottom .education {
+	width: 100%;
+	padding-bottom: 15px;
+	margin-top: 17px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+}
+
+.site .bottom .education .title {
+	position: relative;
+	width: 85%;
+	margin: 15px auto;
+	padding-bottom: 5px;
+	font-size: 1.875em;
+    color: #1f407a;
+}
+
+.site .bottom .education .links {
+    position: relative;
+    width: 85%;
+	margin: 15px auto;
+}
+
+.site .bottom .education .links .edulink {
+    width: 100%;
+    margin: 5px auto 0;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.site a:link {
+	font-weight: 600;
+  	color: #0072a4;
+}
+
+.site a:active {
+	font-weight: 600;
+  	color: #d40026;
+}
+
+.site a:visited {
+	font-weight: 600;
+  	color: #0072a4;
+}
+
+.site a:hover {
+	font-weight: 600;
+  	color: #d40026;
+}
+
+.site .top .slides {
+	position: relative;
+	width: 77%;
+	max-height: 500px;
+	float: left;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+}
+
+@media screen and (max-width: 760px) {
+	.site .top .mission {
+	  display: none;
+	}
+	.site .top .slides {
+	  position: relative;
+	  width: 95%;
+	  margin-left: 2.5%;
+	}
+	.site .bottom .left {
+		width: 95%;
+		margin-left: 2.5%;
+	}
+	.site .bottom .right {
+		width: 95%;
+		margin-left: 2.5%;
+	}
+  }
+
+@media screen and (min-width: 760px) and (max-width: 1120px) {
+  .site .top .mission {
+    display: none;
+  }
+  .site .top .slides {
+    position: relative;
+    width: 95%;
+	margin-left: 2.5%;
+  }
+  .site .bottom .left {
+	  width: 46.75%;
+	  margin-left: 2.5%;
+  }
+  .site .bottom .right {
+	  width: 46.75%;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .site .top .slides {
+    position: relative;
+    width: 77%;
+	float: left;
+  }
+  .site .bottom .left {
+	  width: 37.75%;
+	  margin-left: 0%;
+  }
+  .site .bottom .right {
+	  width: 37.75%;
+  }
+}

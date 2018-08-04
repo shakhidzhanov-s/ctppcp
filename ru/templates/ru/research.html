@@ -1,0 +1,38 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}Научные направления{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/research.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="activelink" href="/ru/research">Научные направления</a>
+<a class="link" href="/ru/research/etics">НЭК</a>
+<a class="link" href="/ru/research/senate">Ученый совет</a>
+<a class="link" href="/ru/research/publications">Публикации</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Научные направления:</h1>
+  {% for area in area_list %}
+  <div class="area clearfix">
+    <p class="name">{{area.title}}</p>
+    {% for person in area.prinvestigator_set.all %}
+    <div class="group clearfix">
+      <div class="description clearfix">
+        <h2 class="pi"><img class="image" src="{{ person.photo.url }}" alt="photo">{{person.position}} {{person.firstname}} {{person.lastname}}</h2>
+        <h3 class="little">{{person.research.title}}</h3>
+        <p class="text">{{person.research.little}} <a href="/ru/research/{{person.nick}}">Подробнее »</a></p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

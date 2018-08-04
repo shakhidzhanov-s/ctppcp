@@ -1,0 +1,27 @@
+{% extends "en/skeleton.html" %}
+
+{% block title %}{{person.firstname}} {{person.lastname}} Group{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "en/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "en/css/detail.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="activelink" href="/en/research/{{person.nick}}">Group Research</a>
+<a class="link" href="/en/research/{{person.nick}}/people">Group Members</a>
+<a class="link" href="/en/research/{{person.nick}}/profile">Group Leader</a>
+<a class="link" href="/en/research/{{person.nick}}/publications">Group Publications</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">{{person.firstname}} {{person.lastname}} Group</h1>
+  <div class="description clearfix">
+  {{person.research.text|safe}}
+  </div>
+</div>
+{% endblock %}

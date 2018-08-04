@@ -1,0 +1,47 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}Сотрудники{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/people.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/ru/people/principal_investigators">Лаборатории</a>
+<a class="link" href="/ru/people/staff">Администрация</a>
+{% endblock %}
+
+{{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Сотрудники:</h1>
+  <div class="tab clearfix">
+    {% for a in s_list %}
+    <h3 class="letter">{{a}}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Имя</th>
+          <th>Должность</th>
+          <th class="rig">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for scientist in r_list  %}
+      {% if a == scientist.lastname|slice:"1" %}
+      <tr>
+        <td width=40%>{{scientist.lastname}}, {{scientist.firstname}}</td>
+        <td width=20%>{{scientist.position}}</td> 
+        <td width=40% class="rig">{{scientist.email}}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+      </tbody>
+    </table>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

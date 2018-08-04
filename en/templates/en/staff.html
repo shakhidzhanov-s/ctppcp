@@ -1,0 +1,32 @@
+{% extends "en/skeleton.html" %}
+
+{% block title %}Staff{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "en/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "en/css/staff.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/en/structure">Laboratories</a>
+<a class="activelink" href="/en/structure/staff">Staff</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Staff:</h1>
+  {% for person in staff_list %}
+  <div class="group clearfix">
+    <img class="image" src="{{ person.photo.url }}" alt="photo">
+    <div class="description clearfix">
+      <h2 class="pi">{{person.firstname}} {{person.lastname}}</h2>
+      <p class="text">{{person.position}}</p>
+      <a class="link" href="#">{{person.email}}</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

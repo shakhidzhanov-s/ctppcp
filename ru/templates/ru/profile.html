@@ -1,0 +1,43 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}{{person.firstname}} {{person.lastname}}{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/profile.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/ru/research/{{person.nick}}">Исследования</a>
+<a class="link" href="/ru/research/{{person.nick}}/people">Коллектив</a>
+<a class="activelink" href="/ru/research/{{person.nick}}/profile">Руководитель</a>
+<a class="link" href="/ru/research/{{person.nick}}/publications">Публикации лаборатории</a>
+{% endblock %}
+
+{% block site %}
+<div class="profile clearfix">
+  <h1 class="name">{{person.position}} {{person.firstname}} {{person.lastname}}</h1>
+  <div class="toppart clearfix">
+    <img class="pic" src="{{ person.photo.url }}" alt="photo">
+    <div class="information">
+      <h3 class="title">Профиль:</h3>
+      {% if person.labpage != "" %}
+      <a class="link" href="{{person.labpage}}">Страница лаборатории</a>
+      {% endif %}
+      {% if person.scholar != "" %}
+      <a class="link" href="{{person.scholar}}">Google Scholar</a>
+      {% endif %}
+      {% if person.pubmed != "" %}
+      <a class="link" href="{{person.pubmed}}">Pubmed</a>
+      {% endif %}
+      <a class="link" href="mailto:{{person.email}}">Email: {{person.email}}</a>
+    </div>
+  </div>
+  <div class="description">
+  {{person.profile|safe}}  
+  </div>
+</div>
+{% endblock %}

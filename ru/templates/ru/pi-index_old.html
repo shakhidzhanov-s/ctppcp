@@ -1,0 +1,38 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}Лаборатории{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/pi-index.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="activelink" href="/ru/structure">Лаборатории</a>
+<a class="link" href="/ru/structure/staff">Администрация</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Лаборатории:</h1>
+  {% for person in pi_list %}
+  <div class="group clearfix">
+    <img class="image" src="{{ person.photo.url }}" alt="photo">
+    <div class="description clearfix">
+      <h2 class="pi">{{person.position}} {{person.firstname}} {{person.lastname}}</h2>
+      <a class="link" href="/ru/research/{{person.nick}}">Исследования</a>
+      <a class="link" href="/ru/research/{{person.nick}}/people">Коллектив</a>
+      <a class="link" href="/ru/research/{{person.nick}}/profile">Профиль</a>
+      <a class="link" href="/ru/research/{{person.nick}}/publications">Публикации</a>
+      {% if person.labpage != "" %}
+      <a class="link" href="{{person.labpage}}">Страница лаборатории</a>
+      {% endif %}
+      <a class="link" href="mailto:{{person.email}}">Email: {{person.email}}</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

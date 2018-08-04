@@ -1,0 +1,30 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}Миссия центра{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/mission.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="activelink" href="/ru/center">Миссия центра</a>
+<a class="link" href="/ru/center/history">История центра</a>
+<a class="link" href="/ru/center/contacts">Контакты</a>
+<a class="link" href="/ru/center/maindocs">Основные документы</a>
+<a class="link" href="/ru/center/reports">Планы и отчеты НИР</a>
+<a class="link" href="/ru/center/attestation">Аттестация сотрудников</a>
+<a class="link" href="/ru/center/fazly">Школа Фазли</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">Миссия центра</h1>
+  <div class="description clearfix">
+  {{institute.mission|safe}}
+  </div>
+</div>
+{% endblock %}

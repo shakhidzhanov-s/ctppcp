@@ -1,0 +1,25 @@
+{% extends "en/skeleton.html" %}
+
+{% block title %}PhD Program{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "en/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "en/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "en/css/phd.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/en/education">Lectures for Students</a>
+<a class="activelink" href="/en/education/phd">PhD Program</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="title">PhD Program</h1>
+  <div class="description clearfix">
+  {{phd.about|safe}}
+  </div>
+</div>
+{% endblock %}

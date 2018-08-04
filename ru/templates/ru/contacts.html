@@ -1,0 +1,38 @@
+{% extends "ru/skeleton.html" %}
+
+{% block title %}Контакты{% endblock %}
+
+{% block loads %}
+{% load static %}
+<link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/contacts.css" %}">
+{% endblock %}
+
+{% block links %}
+<a class="link" href="/ru/center">Миссия центра</a>
+<a class="link" href="/ru/center/history">История центра</a>
+<a class="activelink" href="/ru/center/contacts">Контакты</a>
+<a class="link" href="/ru/center/maindocs">Основные документы</a>
+<a class="link" href="/ru/center/reports">Планы и отчеты НИР</a>
+<a class="link" href="/ru/center/attestation">Аттестация сотрудников</a>
+<a class="link" href="/ru/center/fazly">Школа Фазли</a>
+{% endblock %}
+
+{% block site %}
+<div class="overview clearfix">
+  <h1 class="group">Контакты:</h1>
+  {% for contact in contact_list %}
+  <div class="contact clearfix">
+    <div class="text clearfix">
+      <h4 class="title">{{contact.title}}</h4>
+      <p class="address">{{contact.address|safe}}</p>
+    </div>
+    <div class="script">
+      {{contact.script|safe}}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
