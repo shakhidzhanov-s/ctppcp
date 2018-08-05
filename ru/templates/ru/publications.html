@@ -33,7 +33,7 @@
         {% for publication in p_list  %}
         {% if publication.date|date:"Y" == y|date:'Y' %}
         <tr>
-          <td><b>{{publication.title}}</b> {{publication.authors}} <i>{{publication.journal}}</i> {{publication.date|date:"Y"}}; {{publication.volume}}: {{publication.pages}}. {% if publication.pubmed != "" %}<a href="https://www.ncbi.nlm.nih.gov/pubmed/{{publication.pubmed}}">Pubmed</a>{% endif %}</td>
+          <td>{{publication.authors}} <b>{{publication.title}}</b> <i>{{publication.journal}}</i> {{publication.date|date:"Y"}}; {{publication.volume}}: {{publication.pages}}. {% if publication.pubmed != "" %}<a href="https://www.ncbi.nlm.nih.gov/pubmed/{{publication.pubmed}}">Pubmed</a>{% endif %}</td>
         </tr>
         {% endif %}
         {% endfor %}
