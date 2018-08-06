@@ -175,7 +175,7 @@ class Research(models.Model):
 class Publication(models.Model):
     title = models.CharField(max_length=350)
     authors = models.CharField(max_length=500)
-    journal = models.CharField(max_length=50)
+    journal = models.CharField(max_length=100)
     volume = models.CharField(max_length=15)
     pages = models.CharField(max_length=20)
     date = models.DateField('date published')
