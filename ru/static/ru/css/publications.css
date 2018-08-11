@@ -97,6 +97,46 @@ body {
   color: #1f407a;
 }
 
+.site .middle .overview .navtable {
+  position: relative;
+  width: 70%;
+  margin: 20px auto;
+}
+
+.site .middle .overview .navtable table {
+  border-collapse: collapse;
+}
+
+.site .middle .overview .navtable td {
+  border: 1px solid black;
+  text-align: center;
+  font-size: 1.0em;
+}
+
+.site .middle .overview .navtable td a:link {
+  color: #007297;
+  font-weight: 600;
+}
+
+.site .middle .overview .navtable td a:active {
+  color: #d40026;
+  font-weight: 600;
+}
+
+.site .middle .overview .navtable td a:visited {
+  color: #007297;
+  font-weight: 600;
+}
+
+.site .middle .overview .navtable td a:hover {
+  color: #d40026;
+  font-weight: 600;
+}
+
+.site .middle .overview .navtable td:hover {
+  background-color:#f5f5f5;
+}
+
 .site .middle .overview .tab {
   position: relative;
   width: 89.9996336191%;

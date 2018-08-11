@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
     path('', views.main, name='main'),
-    path('newspage=<int:pagenum>', views.news_index, name='news_index'),
-    path('newspage=<int:pagenum>/', views.news_index, name='news_index'),
+    path('news_page=<int:pagenum>', views.news_index, name='news_index'),
+    path('news_page=<int:pagenum>/', views.news_index, name='news_index'),
     path('news/positions', views.positions_index, name='positions_index'),
     path('center', views.mission, name='mission'),
     path('center/history', views.history, name='history'),
@@ -20,6 +20,7 @@ urlpatterns = [
     path('research/etics', views.etics, name='etics'),
     path('research/senate', views.senate, name='senate'),
     path('research/publications', views.publications, name='publications'),
+    path('research/publications_year=<int:pageyear>', views.publicationsyear, name='publicationsyear'),
     path('research/<str:nc>', views.detail, name='detail'),
     path('research/<str:nc>/people', views.members, name='members'),
     path('research/<str:nc>/profile', views.profile, name='profile'),

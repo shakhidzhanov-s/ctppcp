@@ -20,9 +20,20 @@
 {% block site %}
 <div class="overview clearfix">
   <h1 class="title">Публикации:</h1>
+  <div class="navtable clearfix">
+    <table style="width:100%">
+      {% for x in y_c %}
+      <tr>
+        {% for y in x %}
+        <td><a href="/ru/research/publications_year={{y}}">{{y}}</a></td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
   <div class="tab clearfix">
-    {% for y in years %}
-    <h3 class="year">{{y|date:'Y'}}</h3>
+    <h3 class="year">{{myear}}</h3>
     <table>
       <thead>
         <tr>
@@ -30,16 +41,13 @@
         </tr>
       </thead>
       <tbody>
-        {% for publication in p_list  %}
-        {% if publication.date|date:"Y" == y|date:'Y' %}
+        {% for publication in fp_list  %}
         <tr>
           <td>{{publication.authors}} <b>{{publication.title}}</b> <i>{{publication.journal}}</i> {{publication.date|date:"Y"}}; {{publication.volume}}: {{publication.pages}}. {% if publication.pubmed != "" %}<a href="https://www.ncbi.nlm.nih.gov/pubmed/{{publication.pubmed}}">Pubmed</a>{% endif %}</td>
         </tr>
-        {% endif %}
         {% endfor %}
       </tbody>
     </table>
-    {% endfor %}
   </div>
 </div>
 {% endblock %}

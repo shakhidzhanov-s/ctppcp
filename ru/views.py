@@ -226,11 +226,86 @@ def senate(request):
     return render(request, 'ru/senate.html', context)
 
 
+def publications11(request):
+    institute = Institute.objects.all().first()
+    p_list = Publication.objects.order_by('date')
+    years = p_list.dates('date', 'year').reverse()
+    set_year = Publication.objects.latest('date').date.year
+    column_num = 8
+    years_mod = int(years.count() % column_num)
+    years_strings = int((years.count() - years_mod)/column_num)
+    y_c = []
+    y = []
+    i = 0
+    for x in range(years_strings):
+        for z in range(column_num):
+            y.append(years[i].year)
+            i+=1
+        y_c.append(y)
+        y = []
+    years_rev = years.reverse()
+    y = []
+    for i in range(years_mod):
+        y.append(years_rev[i].year)
+    y_c.append(reversed(y))
+    
+    context = {'p_list':p_list, 'institute':institute, 'years':years, 'y_c':y_c}
+    return render(request, 'ru/publications.html', context)
+
+
 def publications(request):
     institute = Institute.objects.all().first()
     p_list = Publication.objects.order_by('date')
     years = p_list.dates('date', 'year').reverse()
-    context = {'p_list':p_list,'institute':institute,'years':years}
+    max_year = Publication.objects.latest('date').date.year
+    fp_list = Publication.objects.filter(date__year = max_year)
+    column_num = 8
+    years_mod = int(years.count() % column_num)
+    years_strings = int((years.count() - years_mod)/column_num)
+    y_c = []
+    y = []
+    i = 0
+    for x in range(years_strings):
+        for z in range(column_num):
+            y.append(years[i].year)
+            i+=1
+        y_c.append(y)
+        y = []
+    years_rev = years.reverse()
+    y = []
+    for i in range(years_mod):
+        y.append(years_rev[i].year)
+    y_c.append(reversed(y))
+    
+    context = {'fp_list':fp_list, 'institute':institute, 'myear':max_year, 'y_c':y_c}
+    return render(request, 'ru/publications.html', context)
+
+
+def publicationsyear(request, pageyear):
+    institute = Institute.objects.all().first()
+    p_list = Publication.objects.order_by('date')
+    years = p_list.dates('date', 'year').reverse()
+    max_year = pageyear
+    fp_list = Publication.objects.filter(date__year = max_year)
+    column_num = 8
+    years_mod = int(years.count() % column_num)
+    years_strings = int((years.count() - years_mod)/column_num)
+    y_c = []
+    y = []
+    i = 0
+    for x in range(years_strings):
+        for z in range(column_num):
+            y.append(years[i].year)
+            i+=1
+        y_c.append(y)
+        y = []
+    years_rev = years.reverse()
+    y = []
+    for i in range(years_mod):
+        y.append(years_rev[i].year)
+    y_c.append(reversed(y))
+    
+    context = {'fp_list':fp_list, 'institute':institute, 'myear':max_year, 'y_c':y_c}
     return render(request, 'ru/publications.html', context)
 
 
