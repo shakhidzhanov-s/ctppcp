@@ -106,8 +106,8 @@ body {
   
 .site .middle .group .image {
   float: left;
-  width: 150px;
-  height: 200px;
+  width: 180px;
+  height: 250px;
   object-fit: cover;
 }
   
@@ -115,7 +115,7 @@ body {
   position: relative;
   float: left;
   padding-left: 10px;
-  width: 67%;
+  width: 50%;
 }
   
 .site .middle .group .description .pi {
