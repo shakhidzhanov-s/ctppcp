@@ -14,12 +14,12 @@
 <a class="link" href="/ru/research/{{person.nick}}">Исследования</a>
 <a class="link" href="/ru/research/{{person.nick}}/people">Коллектив</a>
 <a class="link" href="/ru/research/{{person.nick}}/profile">Руководитель</a>
-<a class="activelink" href="/ru/research/{{person.nick}}/publications">Публикации лаборатории</a>
+<a class="activelink" href="/ru/research/{{person.nick}}/publications">Публикации группы</a>
 {% endblock %}
 
 {% block site %}
 <div class="overview clearfix">
-  <h1 class="title">Публикации лаборатории:</h1>
+  <h1 class="title">Публикации группы:</h1>
   <div class="tab clearfix">
     {% for y in years %}
     <h3 class="year">{{y|date:'Y'}}</h3>

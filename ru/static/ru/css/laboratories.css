@@ -106,10 +106,8 @@ body {
   
 .site .middle .group .image {
   float: left;
-  width: 150px;
-  max-width: 150px;
-  height: 200px;
-  max-height: 200px;
+  width: 180px;
+  height: 250px;
   object-fit: cover;
 }
   

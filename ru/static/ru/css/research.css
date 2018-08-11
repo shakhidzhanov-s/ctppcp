@@ -120,31 +120,20 @@ body {
   padding-bottom: 20px;
 }
 
+.site .middle .overview .area .group .image {
+  float: left;
+  width: 180px;
+  height: 250px;
+  object-fit: cover;
+}
+
 .site .middle .overview .area .group .description {
   position: relative;
   float: left;
-  width: 100%;
+  padding-left: 10px;
+  width: 60%;
 }
-
-.site .middle .overview .area .group .description .image {
-  float: left;
-  width: 150px;
-  max-width: 150px;
-  height: 200px;
-  max-height: 200px;
-  object-fit: cover;
-  margin-right:10px;
-}
-
-.site .middle .overview .area .group .description .little {
-  width: 100%;
-  margin: 0 auto;
-  padding-bottom: 5px;
-  font-size: 1em;
-  font-weight: 600;
-  color: #000000;
-}
-
+  
 .site .middle .overview .area .group .description .pi {
   width: 100%;
   margin: 0 auto;
@@ -154,33 +143,28 @@ body {
   color: #1f407a;
 }
 
-.site .middle .overview .area .group .description .text {
+.site .middle .overview .area .group .description .link {
+  float: left;
   width: 100%;
-  margin: 0 auto;
-  padding-bottom: 10px;
   font-size: 1em;
-  color: rgb(0, 0, 0);
+  font-weight: 600;
+  padding-bottom: 3px;
 }
 
-
-.site .middle .overview .area .group .description .text a:link {
+.site .middle a:link {
   color: #0072a4;
-  font-weight: 600;
 }
 
-.site .middle .overview .area .group .description .text a:active {
+.site .middle a:active {
   color: #d40026;
-  font-weight: 600;
 }
 
-.site .middle .overview .area .group .description .text a:visited {
+.site .middle a:visited {
   color: #0072a4;
-  font-weight: 600;
 }
 
-.site .middle .overview .area .group .description .text a:hover {
+.site .middle a:hover {
   color: #d40026;
-  font-weight: 600;
 }
 
 @media screen and (max-width: 1120px) {

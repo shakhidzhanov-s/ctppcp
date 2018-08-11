@@ -25,10 +25,17 @@
     <p class="name">{{area.title}}</p>
     {% for person in area.prinvestigator_set.all %}
     <div class="group clearfix">
+      <img class="image" src="{{ person.photo.url }}" alt="photo">
       <div class="description clearfix">
-        <h2 class="pi"><img class="image" src="{{ person.photo.url }}" alt="photo">{{person.position}} {{person.firstname}} {{person.lastname}}</h2>
-        <h3 class="little">{{person.research.title}}</h3>
-        <p class="text">{{person.research.little}} <a href="/ru/research/{{person.nick}}">Подробнее »</a></p>
+        <h2 class="pi">{{person.position}} {{person.firstname}} {{person.lastname}}</h2>
+        <a class="link" href="/ru/research/{{person.nick}}">Исследования</a>
+        <a class="link" href="/ru/research/{{person.nick}}/people">Коллектив</a>
+        <a class="link" href="/ru/research/{{person.nick}}/profile">Профиль</a>
+        <a class="link" href="/ru/research/{{person.nick}}/publications">Публикации группы</a>
+        {% if person.labpage != "" %}
+        <a class="link" href="{{person.labpage}}">Страница лаборатории</a>
+        {% endif %}
+        <a class="link" href="mailto:{{person.email}}">Email: {{person.email}}</a>
       </div>
     </div>
     {% endfor %}

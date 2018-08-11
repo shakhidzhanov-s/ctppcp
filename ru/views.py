@@ -45,18 +45,74 @@ def positions_index(request):
     return render(request, 'ru/positions.html', context)
 
 
-def prinvestigator_index_old(request):
-    institute = Institute.objects.all().first()
-    pi_list = PrInvestigator.objects.all()
-    context = {'pi_list': pi_list, 'institute':institute}
-    return render(request, 'ru/pi-index.html', context)
+def mission(request):
+    try:
+        institute = Institute.objects.all().first()
+        mission = Mission.objects.all().first()
+        context = {'mission':mission,'institute': institute}
+    except Institute.DoesNotExist:
+        raise Http404("Mission does not exist")
+    return render(request, 'ru/mission.html', context)
 
 
-def prinvestigator_index(request):
+def history(request):
+    try:
+        institute = Institute.objects.all().first()
+        history = History.objects.all().first()
+        context = {'history': history,'institute':institute}
+    except History.DoesNotExist:
+        raise Http404("History does not exist")
+    return render(request, 'ru/history.html', context)
+
+
+def fazly(request):
+    try:
+        institute = Institute.objects.all().first()
+        fazly = Fazly.objects.all().first()
+        context = {'fazly': fazly,'institute':institute}
+    except Fazly.DoesNotExist:
+        raise Http404("Fazly does not exist")
+    return render(request, 'ru/fazly.html', context)
+
+
+def contacts(request):
+    try:
+        institute = Institute.objects.all().first()
+        contact_list = Contact.objects.all()
+        context = {'contact_list':contact_list,'institute': institute}
+    except Contact.DoesNotExist:
+        raise Http404("Contacts do not exist")
+    return render(request, 'ru/contacts.html', context)
+
+
+def reports(request):
     institute = Institute.objects.all().first()
-    lab = Laboratories.objects.all().first()
+    r_list = Report.objects.order_by('date')
+    years = r_list.dates('date', 'year').reverse()
+    context = {'r_list':r_list,'institute':institute,'years':years}
+    return render(request, 'ru/reports.html', context)
+
+
+def attestation(request):
+    institute = Institute.objects.all().first()
+    r_list = Attestation.objects.order_by('date')
+    years = r_list.dates('date', 'year').reverse()
+    context = {'r_list':r_list,'institute':institute,'years':years}
+    return render(request, 'ru/attestation.html', context)
+
+
+def maindocs(request):
+    institute = Institute.objects.all().first()
+    r_list = MainDocs.objects.order_by('title')
+    context = {'r_list':r_list,'institute':institute}
+    return render(request, 'ru/maindocs.html', context)
+
+
+def laboratory_index(request):
+    institute = Institute.objects.all().first()
+    lab = Laboratory.objects.all()
     context = {'lab': lab, 'institute':institute}
-    return render(request, 'ru/pi-index.html', context)
+    return render(request, 'ru/laboratories.html', context)
 
 
 def staff_index(request):
@@ -64,6 +120,13 @@ def staff_index(request):
     staff_list = Staff.objects.all()
     context = {'staff_list': staff_list, 'institute':institute}
     return render(request, 'ru/staff.html', context)
+
+
+def prinvestigator_index_old(request):
+    institute = Institute.objects.all().first()
+    pi_list = PrInvestigator.objects.all()
+    context = {'pi_list': pi_list, 'institute':institute}
+    return render(request, 'ru/pi-index.html', context)
 
 
 def people_index(request):
@@ -143,46 +206,6 @@ def profile(request, nc):
     return render(request, "ru/profile.html", context)
 
 
-def mission(request):
-    try:
-        institute = Institute.objects.all().first()
-        mission = Mission.objects.all().first()
-        context = {'mission':mission,'institute': institute}
-    except Institute.DoesNotExist:
-        raise Http404("Mission does not exist")
-    return render(request, 'ru/mission.html', context)
-
-
-def history(request):
-    try:
-        institute = Institute.objects.all().first()
-        history = History.objects.all().first()
-        context = {'history': history,'institute':institute}
-    except History.DoesNotExist:
-        raise Http404("History does not exist")
-    return render(request, 'ru/history.html', context)
-
-
-def fazly(request):
-    try:
-        institute = Institute.objects.all().first()
-        fazly = Fazly.objects.all().first()
-        context = {'fazly': fazly,'institute':institute}
-    except Fazly.DoesNotExist:
-        raise Http404("Fazly does not exist")
-    return render(request, 'ru/fazly.html', context)
-
-
-def contacts(request):
-    try:
-        institute = Institute.objects.all().first()
-        contact_list = Contact.objects.all()
-        context = {'contact_list':contact_list,'institute': institute}
-    except Contact.DoesNotExist:
-        raise Http404("Contacts do not exist")
-    return render(request, 'ru/contacts.html', context)
-
-
 def etics(request):
     try:
         institute = Institute.objects.all().first()
@@ -201,29 +224,6 @@ def senate(request):
     except Senate.DoesNotExist:
         raise Http404("Senate does not exist")
     return render(request, 'ru/senate.html', context)
-
-
-def reports(request):
-    institute = Institute.objects.all().first()
-    r_list = Report.objects.order_by('date')
-    years = r_list.dates('date', 'year').reverse()
-    context = {'r_list':r_list,'institute':institute,'years':years}
-    return render(request, 'ru/reports.html', context)
-
-
-def attestation(request):
-    institute = Institute.objects.all().first()
-    r_list = Attestation.objects.order_by('date')
-    years = r_list.dates('date', 'year').reverse()
-    context = {'r_list':r_list,'institute':institute,'years':years}
-    return render(request, 'ru/attestation.html', context)
-
-
-def maindocs(request):
-    institute = Institute.objects.all().first()
-    r_list = MainDocs.objects.order_by('title')
-    context = {'r_list':r_list,'institute':institute}
-    return render(request, 'ru/maindocs.html', context)
 
 
 def publications(request):
