@@ -39,7 +39,7 @@
       <div class="event">
         <h3 class="date">{{event.date}}</h3>
         <h2 class="name">{{event.title}}</h2>
-        <p class="text">{{event.text|safe|truncatewords:30}} <a href="/ru/newspage=1/#n{{event.rid}}">Подробнее »</a></p>
+        <p class="text">{{event.text|safe|truncatewords:30}} <a href="/ru/newspage=1/#n{{ forloop.counter }}">Подробнее »</a></p>
       </div>
       {% endfor %}
       {% else %}

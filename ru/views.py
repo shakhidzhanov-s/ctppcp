@@ -9,7 +9,7 @@ from .models import Page, Position, Research, Etics, Report, Senate, Publication
 
 
 def main(request):
-    latest_news_list = Event.objects.order_by('-date')[:1]
+    latest_news_list = Event.objects.order_by('-date')[:2]
     area_list = Area.objects.all()
     institute = Institute.objects.all().first()
     image_list = MainImage.objects.all()

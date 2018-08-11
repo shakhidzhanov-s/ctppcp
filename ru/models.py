@@ -108,13 +108,8 @@ class Event(models.Model):
     text = models.TextField('event text')
     date = models.DateField('date published')
     photo = models.ImageField(upload_to='images', blank=True, null=True)
-    rid = models.PositiveIntegerField('id', unique=True, blank=True, editable=False)
     def __str__(self):
         return self.title
-    def save(self):
-        if not self.rid:
-            self.rid = random.randint(10000,99999)
-        super(Event, self).save()
 
 
 class Area(models.Model):

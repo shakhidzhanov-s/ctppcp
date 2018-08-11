@@ -20,7 +20,7 @@
   <h1 class="title title-1">Новости и события:</h1>
   {% if news_list %}
   {% for event in news_list %}
-  <div id="n{{event.rid}}" class="event clearfix">
+  <div id="n{{ forloop.counter }}" class="event clearfix">
     <h3 class="date">{{event.date}}</h3>
     <h2 class="title">{{event.title}}</h2>
     {% if event.photo %}
