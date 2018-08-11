@@ -130,7 +130,7 @@ class Laboratory(models.Model):
     name = models.CharField(max_length=70)
     prInvestigator = models.CharField(max_length=200)
     email = models.EmailField(max_length=50, blank=True)
-    photo = models.ImageField(upload_to='images', blank=True, null=True)
+    photo = models.ImageField(upload_to='images')
     def __str__(self):
         return self.name
 
@@ -140,7 +140,7 @@ class Staff(models.Model):
     lastname = models.CharField(max_length=35)
     rang = models.CharField(max_length=200, blank=True)
     email = models.EmailField(max_length=50, blank=True)
-    photo = models.ImageField(upload_to='images', blank=True, null=True)
+    photo = models.ImageField(upload_to='images')
     position = models.CharField(max_length=35)
     def __str__(self):
         return self.firstname + ' ' + self.lastname
