@@ -1,13 +1,13 @@
 {% extends "ru/skeleton.html" %}
 
-{% block title %}Администрация{% endblock %}
+{% block title %}Лаборатории{% endblock %}
 
 {% block loads %}
 {% load static %}
 <link rel="stylesheet" href="{% static "ru/css/standardize.css" %}">
 <link rel="stylesheet" href="{% static "ru/css/skeleton-grid.css" %}">
 <link rel="stylesheet" href="{% static "ru/css/skeleton.css" %}">
-<link rel="stylesheet" href="{% static "ru/css/staff.css" %}">
+<link rel="stylesheet" href="{% static "ru/css/laboratories.css" %}">
 {% endblock %}
 
 {% block links %}
@@ -17,16 +17,13 @@
 
 {% block site %}
 <div class="overview clearfix">
-  <h1 class="title">Администрация:</h1>
-  {% for person in staff_list %}
+  <h1 class="title">Лаборатории:</h1>
+  {% for lab in lab_list %}
   <div class="group clearfix">
-    <img class="image" src="{{ person.photo.url }}" alt="photo">
+    <img class="image" src="{{ lab.photo.url }}" alt="photo">
     <div class="description clearfix">
-      <h2 class="pi">{{person.firstname}} {{person.lastname}}</h2>
-      {% if person.rang != "" %}
-      <p class="text"><b>{{person.rang}}</b></p>
-      {% endif %}
-      <p class="text">{{person.position}}</p>
+      <h2 class="pi">{{lab.name}}</h2>
+      <p class="text"><b>{{lab.prInvestigator}}</b></p>
       <a class="link" href="mailto:{{person.email}}">{{person.email}}</a>
     </div>
   </div>

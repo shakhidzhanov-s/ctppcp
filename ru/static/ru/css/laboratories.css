@@ -3,6 +3,7 @@ body {
   font: 400 1em/1.38 'Open Sans';
   color: rgb(0, 0, 0);
 }
+
 .site {
   position: relative;
   float: left;
@@ -86,8 +87,8 @@ body {
   padding-bottom: 50px;
   background-color: rgb(255, 255, 255);
 }
-
-.site .overview .title {
+  
+.site .middle .overview .title {
   width: 89.9996336191%;
   margin: 50px auto 0;
   padding-bottom: 20px;
@@ -95,97 +96,70 @@ body {
   font-weight: 600;
   color: #1f407a;
 }
-  
-.site .middle .overview .description {
-  position: relative;
+
+.site .middle .group {
   width: 89.9996336191%;
-  margin: 0 auto;
+  margin: 0px auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
   
-.site .middle .overview .title_big {
-  width: 100%;
-  margin: 0 auto;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 1.5em;
-  font-weight: 600;
-  color: #1f407a;
+.site .middle .group .image {
+  float: left;
+  width: 150px;
+  max-width: 150px;
+  height: 200px;
+  max-height: 200px;
+  object-fit: cover;
 }
   
-.site .middle .overview .title_medium {
+.site .middle .group .description {
+  position: relative;
+  float: left;
+  padding-left: 10px;
+  width: 67%;
+}
+  
+.site .middle .group .description .pi {
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  font-weight: 600;
-  margin-top: 15px;
+  margin: 0 auto;
   padding-bottom: 15px;
   font-size: 1.25em;
+  font-weight: 600;
   color: #1f407a;
 }
-  
-.site .middle .overview .title_small {
+
+.site .middle .group .description .link {
+  float: left;
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  font-weight: 600;
-  padding-bottom: 5px;
   font-size: 1em;
+  font-weight: 600;
+  padding-bottom: 7px;
+}
+
+.site .middle .group .description .text {
+  float: left;
+  width: 100%;
+  font-size: 1em;
+  font-weight: 600;
+  padding-bottom: 7px;
   color: #000000;
 }
-  
-.site .middle .overview .text {
-  width: 100%;
-  margin: 0 auto;
-  padding-bottom: 10px;
-  font-size: 1em;
-  color: rgb(0, 0, 0);
-}
 
-.site .middle .overview .text .leftimage {
-  float: left;
-  max-width: 300px;
-  object-fit: cover;
-  margin: 4px 7px 0px 0px
-}
-  
-.site .middle .overview .figure {
-  position: relative;
-  width: 100%;
-  margin: 15px auto 0;
-  padding-bottom: 15px;
-}
-  
-.site .middle .overview .figure .image {
-  width: 100%;
-  max-width: 1100px;
-  object-fit: cover;
-}
-  
-.site .middle .overview .figure .caption {
-  width: 100%;
-  margin: 10px auto 0;
-  font-size: 0.875em;
-  color: #6a7277;
-}
-
-.site .middle .overview a:link {
+.site .middle a:link {
   color: #0072a4;
-  font-weight: 600;
 }
 
-.site .middle .overview a:active {
+.site .middle a:active {
   color: #d40026;
-  font-weight: 600;
 }
 
-.site .middle .overview a:visited {
+.site .middle a:visited {
   color: #0072a4;
-  font-weight: 600;
 }
 
-.site .middle .overview a:hover {
+.site .middle a:hover {
   color: #d40026;
-  font-weight: 600;
 }
 
 @media screen and (max-width: 1120px) {

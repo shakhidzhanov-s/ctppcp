@@ -126,14 +126,24 @@ class Attestation(models.Model):
         return self.title + ', ' + str(self.date)
 
 
-class Laboratories(models.Model):
-    text = models.TextField('laboratories')
+class Laboratory(models.Model):
+    name = models.CharField(max_length=70)
+    prInvestigator = models.CharField(max_length=200)
+    email = models.EmailField(max_length=50, blank=True)
+    photo = models.ImageField(upload_to='images', blank=True, null=True)
     def __str__(self):
-        return self.text
-    def save(self, *args, **kwargs):
-        if Laboratories.objects.exists() and not self.pk:
-            raise ValidationError('You cannot add a new Laboratories page, please change previous Laboratories page entry')
-        return super(Laboratories, self).save(*args, **kwargs)
+        return self.name
+
+
+class Staff(models.Model):
+    firstname = models.CharField(max_length=35)
+    lastname = models.CharField(max_length=35)
+    rang = models.CharField(max_length=200, blank=True)
+    email = models.EmailField(max_length=50, blank=True)
+    photo = models.ImageField(upload_to='images', blank=True, null=True)
+    position = models.CharField(max_length=35)
+    def __str__(self):
+        return self.firstname + ' ' + self.lastname
 
 
 class Etics(models.Model):
@@ -189,15 +199,26 @@ class Scientist(models.Model):
         return self.firstname + ' ' + self.lastname
 
 
-class Staff(models.Model):
-    firstname = models.CharField(max_length=35)
-    lastname = models.CharField(max_length=35)
-    rang = models.CharField(max_length=200, blank=True)
-    email = models.EmailField(max_length=50, blank=True)
-    photo = models.ImageField(upload_to='images', blank=True, null=True)
-    position = models.CharField(max_length=35)
+class Research(models.Model):
+    title = models.CharField(max_length=200)
+    little = models.TextField(max_length=2000)
+    text = models.TextField('about research')
+    prInvestigator = models.OneToOneField(PrInvestigator, on_delete=models.CASCADE, related_name='research')
     def __str__(self):
-        return self.firstname + ' ' + self.lastname
+        return self.title
+
+
+class Publication(models.Model):
+    title = models.CharField(max_length=350)
+    authors = models.CharField(max_length=500)
+    journal = models.CharField(max_length=100)
+    volume = models.CharField(max_length=15)
+    pages = models.CharField(max_length=20)
+    date = models.DateField('date published')
+    pubmed = models.CharField(max_length=15, blank=True)
+    prInvestigator = models.ManyToManyField(PrInvestigator, blank=True)
+    def __str__(self):
+        return self.title + '; ' + str(self.authors) + '; ' + str(self.journal) + '; ' + str(self.volume) + '; ' + str(self.pages) + '; ' + str(self.date)
 
 
 class Course(models.Model):
@@ -226,25 +247,3 @@ class Page(models.Model):
     pagetext = models.TextField('Text')
     def __str__(self):
         return self.pagename
-
-
-class Research(models.Model):
-    title = models.CharField(max_length=200)
-    little = models.TextField(max_length=2000)
-    text = models.TextField('about research')
-    prInvestigator = models.OneToOneField(PrInvestigator, on_delete=models.CASCADE, related_name='research')
-    def __str__(self):
-        return self.title
-
-
-class Publication(models.Model):
-    title = models.CharField(max_length=350)
-    authors = models.CharField(max_length=500)
-    journal = models.CharField(max_length=100)
-    volume = models.CharField(max_length=15)
-    pages = models.CharField(max_length=20)
-    date = models.DateField('date published')
-    pubmed = models.CharField(max_length=15, blank=True)
-    prInvestigator = models.ManyToManyField(PrInvestigator, blank=True)
-    def __str__(self):
-        return self.title + '; ' + str(self.authors) + '; ' + str(self.journal) + '; ' + str(self.volume) + '; ' + str(self.pages) + '; ' + str(self.date)

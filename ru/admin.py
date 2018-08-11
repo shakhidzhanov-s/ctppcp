@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import MainImage, Image, Institute, History, Contact, Event, Area, PrInvestigator, Scientist, Staff, Fazly
 from .models import Document, Course, PhDProgram, Mission
-from .models import Page, Position, Research, Etics, Report, Senate, Publication, MainDocs, Attestation, Laboratories
+from .models import Page, Position, Research, Etics, Report, Senate, Publication, MainDocs, Attestation, Laboratory
 
 
 admin.site.register(MainImage)
@@ -28,5 +28,5 @@ admin.site.register(Report)
 admin.site.register(MainDocs)
 admin.site.register(Attestation)
 admin.site.register(Publication)
-admin.site.register(Laboratories)
+admin.site.register(Laboratory)
 admin.site.register(Mission)

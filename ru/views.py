@@ -5,7 +5,7 @@ from django.db.models import Q
 
 from .models import MainImage, Institute, History, Contact, Event, Area, PrInvestigator, Scientist, Staff, Fazly
 from .models import Course, PhDProgram, Mission
-from .models import Page, Position, Research, Etics, Report, Senate, Publication, Attestation, MainDocs, Laboratories
+from .models import Page, Position, Research, Etics, Report, Senate, Publication, Attestation, MainDocs, Laboratory
 
 
 def main(request):
