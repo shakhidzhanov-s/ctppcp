@@ -39,9 +39,9 @@
             {% if ii == '&#171;' %}
               <a href="/ru/news_page=1" class="digit">{{ii|safe}}</a>
             {% elif ii == '&#187;' %}
-              <a href="/ru/new_spage={{page_max}}" class="digit">{{ii|safe}}</a>
+              <a href="/ru/news_page={{page_max}}" class="digit">{{ii|safe}}</a>
             {% else %}
-              <a href="/ru/new_spage={{ii}}" class="digit">{{ii|safe}}</a>
+              <a href="/ru/news_page={{ii}}" class="digit">{{ii|safe}}</a>
             {% endif %}
           {% endif %}
       {% endfor %}</p>
