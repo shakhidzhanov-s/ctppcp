@@ -111,7 +111,6 @@ def maindocs(request):
 def laboratory_index(request):
     institute = Institute.objects.all().first()
     lab = Laboratory.objects.all()
-    print(lab)
     context = {'lab': lab, 'institute':institute}
     return render(request, 'ru/laboratories.html', context)
 
