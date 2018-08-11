@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-import random
 
 
 class MainImage(models.Model):
@@ -28,7 +27,6 @@ class Document(models.Model):
 class Institute(models.Model):
     name = models.TextField(max_length=200)
     nameLittle = models.TextField(max_length=20)
-    mission = models.TextField('institute mission')
     link1Title = models.CharField(max_length=50, blank=True)
     link1Link = models.URLField(blank=True)
     link2Title = models.CharField(max_length=50, blank=True)
@@ -45,6 +43,23 @@ class Institute(models.Model):
         return super(Institute, self).save(*args, **kwargs)
 
 
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    text = models.TextField('event text')
+    date = models.DateField('date published')
+    photo = models.ImageField(upload_to='images', blank=True, null=True)
+    def __str__(self):
+        return self.title
+
+
+class Position(models.Model):
+    date = models.DateField('date published')
+    title = models.CharField(max_length=200)
+    text = models.TextField('position description')
+    def __str__(self):
+        return self.title
+
+
 class History(models.Model):
     text = models.TextField('history')
     def __str__(self):
@@ -55,6 +70,16 @@ class History(models.Model):
         return super(History, self).save(*args, **kwargs)
 
 
+class Mission(models.Model):
+    text = models.TextField('mission')
+    def __str__(self):
+        return self.text
+    def save(self, *args, **kwargs):
+        if Mission.objects.exists() and not self.pk:
+            raise ValidationError('You cannot add a new Mission, please change previous Mission entry')
+        return super(Mission, self).save(*args, **kwargs)
+
+
 class Fazly(models.Model):
     text = models.TextField('about Fazly')
     def __str__(self):
@@ -63,6 +88,42 @@ class Fazly(models.Model):
         if Fazly.objects.exists() and not self.pk:
             raise ValidationError('You cannot add a new Fazly, please change previous Fazly entry')
         return super(Fazly, self).save(*args, **kwargs)
+
+
+class Contact(models.Model):
+    title = models.TextField('Title')
+    address = models.TextField('Text')
+    script = models.TextField('Script')
+    def __str__(self):
+        return self.address
+    def save(self, *args, **kwargs):
+        if Contact.objects.exists() and not self.pk:
+            raise ValidationError('You cannot add a new Contact, please change previous Contact entry')
+        return super(Contact, self).save(*args, **kwargs)
+
+
+class Report(models.Model):
+    document = models.FileField(upload_to="documents")
+    title = models.CharField(max_length=300)
+    date = models.DateField('date published')
+    def __str__(self):
+        return self.title + ', ' + str(self.date)
+
+
+class MainDocs(models.Model):
+    document = models.FileField(upload_to="documents")
+    title = models.CharField(max_length=300)
+    date = models.DateField('date published')
+    def __str__(self):
+        return self.title + ', ' + str(self.date)
+
+
+class Attestation(models.Model):
+    document = models.FileField(upload_to="documents")
+    title = models.CharField(max_length=300)
+    date = models.DateField('date published')
+    def __str__(self):
+        return self.title + ', ' + str(self.date)
 
 
 class Laboratories(models.Model):
@@ -93,23 +154,6 @@ class Senate(models.Model):
         if Senate.objects.exists() and not self.pk:
             raise ValidationError('You cannot add a new Senate, please change previous Senate entry')
         return super(Senate, self).save(*args, **kwargs)
-
-
-class Contact(models.Model):
-    title = models.TextField('Title')
-    address = models.TextField('Text')
-    script = models.TextField('Script')
-    def __str__(self):
-        return self.address
-
-
-class Event(models.Model):
-    title = models.CharField(max_length=200)
-    text = models.TextField('event text')
-    date = models.DateField('date published')
-    photo = models.ImageField(upload_to='images', blank=True, null=True)
-    def __str__(self):
-        return self.title
 
 
 class Area(models.Model):
@@ -184,14 +228,6 @@ class Page(models.Model):
         return self.pagename
 
 
-class Position(models.Model):
-    date = models.DateField('date published')
-    title = models.CharField(max_length=200)
-    text = models.TextField('position description')
-    def __str__(self):
-        return self.title
-
-
 class Research(models.Model):
     title = models.CharField(max_length=200)
     little = models.TextField(max_length=2000)
@@ -199,30 +235,6 @@ class Research(models.Model):
     prInvestigator = models.OneToOneField(PrInvestigator, on_delete=models.CASCADE, related_name='research')
     def __str__(self):
         return self.title
-
-
-class Report(models.Model):
-    document = models.FileField(upload_to="documents")
-    title = models.CharField(max_length=300)
-    date = models.DateField('date published')
-    def __str__(self):
-        return self.title + ', ' + str(self.date)
-
-
-class MainDocs(models.Model):
-    document = models.FileField(upload_to="documents")
-    title = models.CharField(max_length=300)
-    date = models.DateField('date published')
-    def __str__(self):
-        return self.title + ', ' + str(self.date)
-
-
-class Attestation(models.Model):
-    document = models.FileField(upload_to="documents")
-    title = models.CharField(max_length=300)
-    date = models.DateField('date published')
-    def __str__(self):
-        return self.title + ', ' + str(self.date)
 
 
 class Publication(models.Model):

@@ -4,7 +4,7 @@ from itertools import chain
 from django.db.models import Q
 
 from .models import MainImage, Institute, History, Contact, Event, Area, PrInvestigator, Scientist, Staff, Fazly
-from .models import Course, PhDProgram
+from .models import Course, PhDProgram, Mission
 from .models import Page, Position, Research, Etics, Report, Senate, Publication, Attestation, MainDocs, Laboratories
 
 
@@ -146,9 +146,10 @@ def profile(request, nc):
 def mission(request):
     try:
         institute = Institute.objects.all().first()
-        context = {'institute': institute}
+        mission = Mission.objects.all().first()
+        context = {'mission':mission,'institute': institute}
     except Institute.DoesNotExist:
-        raise Http404("Institute does not exist")
+        raise Http404("Mission does not exist")
     return render(request, 'ru/mission.html', context)
 
 
