@@ -19,7 +19,7 @@ class Image(models.Model):
 
 class Document(models.Model):
     document = models.FileField(upload_to="documents")
-    title = models.CharField(max_length=300)
+    title = models.CharField(max_length=200)
     date = models.DateField('date published')
     def __str__(self):
         return self.title + ', ' + str(self.date)
@@ -180,13 +180,6 @@ class PhDProgram(models.Model):
         if PhDProgram.objects.exists() and not self.pk:
             raise ValidationError('You cannot add a new PhDProgram, please change previous PhDProgram entry')
         return super(PhDProgram, self).save(*args, **kwargs)
-
-
-class SummerSchool(models.Model):
-    about = models.TextField('about summer school')
-    date = models.DateField('Year')
-    def __str__(self):
-        return self.about + '...'
 
 
 class Page(models.Model):

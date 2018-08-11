@@ -4,17 +4,31 @@ from itertools import chain
 from django.db.models import Q
 
 from .models import MainImage, Institute, History, Contact, Event, Area, PrInvestigator, Scientist, Staff, Fazly
-from .models import Course, SummerSchool, PhDProgram
+from .models import Course, PhDProgram
 from .models import Page, Position, Research, Etics, Report, Senate, Publication, Attestation, MainDocs, Laboratories
 
 
 def main(request):
-    latest_news_list = Event.objects.order_by('-date')[:3]
+    latest_news_list = Event.objects.order_by('-date')[:1]
     area_list = Area.objects.all()
     institute = Institute.objects.all().first()
     image_list = MainImage.objects.all()
     context = {'latest_news_list': latest_news_list, 'area_list':area_list, 'institute':institute, 'image_list':image_list}
     return render(request, 'ru/main.html', context)
+
+
+def news_index(request):
+    news_list = Event.objects.order_by('-date')
+    institute = Institute.objects.all().first()
+    context = {'news_list':news_list, 'institute':institute}
+    return render(request, 'ru/news.html', context)
+
+
+def positions_index(request):
+    position_list = Position.objects.all()
+    institute = Institute.objects.all().first()
+    context = {'position_list': position_list, 'institute':institute}
+    return render(request, 'ru/positions.html', context)
 
 
 def prinvestigator_index_old(request):
@@ -63,34 +77,11 @@ def course_index(request):
     return render(request, 'ru/courses.html', context)
 
 
-def school(request):
-    institute = Institute.objects.all().first()
-    school_list = SummerSchool.objects.order_by('-date')
-    school = school_list.first()
-    context = {'school':school,'school_list':school_list,'institute':institute}
-    return render(request, 'ru/school.html', context)
-
-
-def schoolyear(request, y):
-    institute = Institute.objects.all().first()
-    school_list = SummerSchool.objects.order_by('-date')
-    school = SummerSchool.objects.filter(date__year=y).first()
-    context = {'school':school,'school_list':school_list,'institute':institute}
-    return render(request, 'ru/school.html', context)
-
-
 def phd(request):
     institute = Institute.objects.all().first()
     phd = PhDProgram.objects.all().first()
     context = {'phd':phd,'institute':institute}
     return render(request, 'ru/phd.html', context)
-
-
-def news_index(request):
-    news_list = Event.objects.order_by('-date')
-    institute = Institute.objects.all().first()
-    context = {'news_list':news_list, 'institute':institute}
-    return render(request, 'ru/news.html', context)
 
 
 def pages_index(request, name):
@@ -99,13 +90,6 @@ def pages_index(request, name):
     institute = Institute.objects.all().first()
     context = {'page':page,'page_list':page_list,'institute':institute}
     return render(request, 'ru/pages.html', context)
-
-
-def positions_index(request):
-    position_list = Position.objects.all()
-    institute = Institute.objects.all().first()
-    context = {'position_list': position_list, 'institute':institute}
-    return render(request, 'ru/positions.html', context)
 
 
 def research_index(request):
