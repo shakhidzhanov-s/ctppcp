@@ -17,10 +17,24 @@ def main(request):
     return render(request, 'ru/main.html', context)
 
 
-def news_index(request):
-    news_list = Event.objects.order_by('-date')
+def news_index(request, pagenum):
+    news_num = Event.objects.count()
+    news_per_page = 10
+    page_max = (news_num - (news_num % news_per_page))/news_per_page
+    if (pagenum > page_max + 1) or pagenum <= 0:
+        news_list = []
+    elif (pagenum == page_max + 1):
+        news_list = Event.objects.order_by('-date')[(pagenum-1)*news_per_page:]
+    else:
+        news_list = Event.objects.order_by('-date')[(pagenum-1)*news_per_page:(pagenum)*news_per_page]
     institute = Institute.objects.all().first()
-    context = {'news_list':news_list, 'institute':institute}
+    page_list_f = range(pagenum-2,pagenum+3)
+    page_list = [x for x in page_list_f if x>0 and x<=(page_max+1)]
+    if pagenum >= 4:
+        page_list.insert(0, '&#171;')
+    if pagenum <= page_max-2:
+        page_list.append('&#187;')
+    context = {'news_list':news_list, 'institute':institute, 'page_list':page_list, 'page_num':pagenum, 'page_max':int(page_max+1)}
     return render(request, 'ru/news.html', context)
 
 

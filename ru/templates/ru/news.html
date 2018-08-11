@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block links %}
-<a class="activelink" href="/ru/news">Новости и события</a>
+<a class="activelink" href="/ru/newspage=1">Новости и события</a>
 <a class="link" href="/ru/news/positions">Вакансии</a>
 {% endblock %}
 
@@ -30,6 +30,23 @@
     {% endif %}
   </div>
   {% endfor %}
+  <div class="numbers clearfix">
+    <div class="box clearfix">
+        <p>{% for ii in page_list %}
+          {% if ii == page_num %}
+            <span class="digitactive">{{ii|safe}}</span>
+          {% else %}
+            {% if ii == '&#171;' %}
+              <a href="/ru/newspage=1" class="digit">{{ii|safe}}</a>
+            {% elif ii == '&#187;' %}
+              <a href="/ru/newspage={{page_max}}" class="digit">{{ii|safe}}</a>
+            {% else %}
+              <a href="/ru/newspage={{ii}}" class="digit">{{ii|safe}}</a>
+            {% endif %}
+          {% endif %}
+      {% endfor %}</p>
+    </div>
+  </div>
   {% else %}
   <div class="event clearfix">
     <h2 class="title">Нет новостей</h2>

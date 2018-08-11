@@ -141,6 +141,55 @@ body {
   color: #6a7277;
 }
 
+.site .middle .news .numbers {
+  position: relative;
+  float: left;
+  clear: both;
+  width: 70%;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+.site .middle .news .numbers .box {
+  width: 100%;
+  margin: 2px auto 0;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #0072a4;
+  text-align: center;
+}
+
+.site .middle .news .numbers .box .digit {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.site .middle .news .numbers .box .digitactive {
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #d40026;
+}
+
+.site .middle .news .numbers .box a:link {
+	font-weight: 600;
+  color: #0072a4;
+}
+
+.site .middle .news .numbers .box a:active {
+	font-weight: 600;
+  color: #d40026;
+}
+
+.site .middle .news .numbers .box a:visited {
+	font-weight: 600;
+  color: #0072a4;
+}
+
+.site .middle .news .numbers .box a:hover {
+	font-weight: 600;
+  color: #d40026;
+}
+
 @media screen and (max-width: 1120px) {
   .main {
     width: 100%;
