@@ -127,7 +127,7 @@ class Attestation(models.Model):
 
 
 class Laboratory(models.Model):
-    name = models.CharField(max_length=70)
+    name = models.CharField(max_length=80)
     prInvestigator = models.CharField(max_length=200)
     email = models.EmailField(max_length=50)
     photo = models.ImageField(upload_to='images')
