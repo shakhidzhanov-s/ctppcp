@@ -200,8 +200,7 @@ class Scientist(models.Model):
 
 
 class Research(models.Model):
-    title = models.CharField(max_length=200)
-    little = models.TextField(max_length=2000)
+    title = models.CharField(max_length=300)
     text = models.TextField('about research')
     prInvestigator = models.OneToOneField(PrInvestigator, on_delete=models.CASCADE, related_name='research')
     def __str__(self):
