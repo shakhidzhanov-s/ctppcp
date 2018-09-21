@@ -12,8 +12,9 @@ def main(request):
     latest_news_list = Event.objects.order_by('-date')[:2]
     area_list = Area.objects.all()
     institute = Institute.objects.all().first()
+    mission = Mission.objects.all().first()
     image_list = MainImage.objects.all()
-    context = {'latest_news_list': latest_news_list, 'area_list':area_list, 'institute':institute, 'image_list':image_list}
+    context = {'latest_news_list': latest_news_list, 'area_list':area_list, 'institute':institute, 'image_list':image_list, 'mission':mission}
     return render(request, 'ru/main.html', context)
 
 
