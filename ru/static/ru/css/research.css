@@ -120,6 +120,16 @@ body {
   padding-bottom: 20px;
 }
 
+.site .middle .overview .area .group .nap {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #1f407a;
+}
+
 .site .middle .overview .area .group .image {
   float: left;
   width: 180px;
