@@ -25,6 +25,8 @@
     <p class="name">{{area.title}}</p>
     {% for person in area.prinvestigator_set.all %}
     <div class="group clearfix">
+      <h2 class="pi">{{person.research.title}}</h2>
+      <h2 class="pi">Руководитель направления:</h2>
       <img class="image" src="{{ person.photo.url }}" alt="photo">
       <div class="description clearfix">
         <h2 class="pi">{{person.position}} {{person.firstname}} {{person.lastname}}</h2>
