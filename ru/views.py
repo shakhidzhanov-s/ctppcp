@@ -3,18 +3,17 @@ from django.http import Http404
 from itertools import chain
 from django.db.models import Q
 
-from .models import MainImage, Institute, History, Contact, Event, Area, PrInvestigator, Scientist, Staff, Fazly
+from .models import MainImage, Institute, History, Contact, Event, PrInvestigator, Scientist, Staff, Fazly
 from .models import Course, PhDProgram, Mission
 from .models import Page, Position, Research, Etics, Report, Senate, Publication, Attestation, MainDocs, Laboratory
 
 
 def main(request):
     latest_news_list = Event.objects.order_by('-date')[:2]
-    area_list = Area.objects.all()
     institute = Institute.objects.all().first()
     mission = Mission.objects.all().first()
     image_list = MainImage.objects.all()
-    context = {'latest_news_list': latest_news_list, 'area_list':area_list, 'institute':institute, 'image_list':image_list, 'mission':mission}
+    context = {'latest_news_list': latest_news_list, 'institute':institute, 'image_list':image_list, 'mission':mission}
     return render(request, 'ru/main.html', context)
 
 
@@ -171,7 +170,6 @@ def pages_index(request, name):
 
 
 def research_index(request):
-    area_list = Area.objects.all
     institute = Institute.objects.all().first()
     context = {'area_list': area_list, 'institute':institute}
     return render(request, 'ru/research.html', context)
