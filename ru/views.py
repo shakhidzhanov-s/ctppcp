@@ -14,7 +14,7 @@ def main(request):
     mission = Mission.objects.all().first()
     image_list = MainImage.objects.all()
     pr_list = PrInvestigator.objects.all()
-    context = {'pr_list': res_list, 'latest_news_list': latest_news_list, 'institute':institute, 'image_list':image_list, 'mission':mission}
+    context = {'pr_list': pr_list, 'latest_news_list': latest_news_list, 'institute':institute, 'image_list':image_list, 'mission':mission}
     return render(request, 'ru/main.html', context)
 
 
