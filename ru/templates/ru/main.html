@@ -54,13 +54,10 @@
     <div class="right clearfix">
     <div class="research clearfix">
       <h1 class="title">Исследования</h1>
-      {% if area_list %}
-      {% for area in area_list %}
+      {% if res_list %}
+      {% for res in res_list %}
       <div class="area clearfix">
-        <h2 class="name">{{area.title}}</h2>
-        {% for pi in area.prinvestigator_set.all %}
-        <p class="investigator"><a href="/ru/research/{{pi.nick}}">{{pi.rang}} {{pi.firstname}} {{pi.lastname}}</a></p>
-        {% endfor %}
+        <p class="investigator"><a href="/ru/research/{{res.prinvestigator_nick}}">{{res.title}}</a></p>
       </div>
       {% endfor %}
       {% else %}
