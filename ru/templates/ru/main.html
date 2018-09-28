@@ -55,11 +55,11 @@
     <div class="research clearfix">
       <h1 class="title">Исследования</h1>
       {% if res_list %}
+      <div class="links clearfix">
       {% for res in res_list %}
-      <div class="area clearfix">
         <p class="edulink"><a href="/ru/research/{{res.prinvestigator.nick}}">{{res.title}}</a></p>
-      </div>
       {% endfor %}
+      </div>
       {% else %}
       <div class="area clearfix">
         <h2 class="title">Нет областей исследования</h2>
