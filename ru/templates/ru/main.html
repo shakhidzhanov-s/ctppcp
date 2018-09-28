@@ -56,8 +56,8 @@
       <h1 class="title">Исследования</h1>
       {% if res_list %}
       <div class="area clearfix">
-      {% for res in res_list %}
-        <p class="investigator"><a href="/ru/research/{{res.prInvestigator_nick}}">{{res.title}}</a></p>
+      {% for pr in pr_list %}
+        <p class="investigator"><a href="/ru/research/{{pr.nick}}">{{!!!}}</a></p>
       {% endfor %}
       </div>
       {% else %}
