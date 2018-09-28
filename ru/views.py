@@ -13,7 +13,8 @@ def main(request):
     institute = Institute.objects.all().first()
     mission = Mission.objects.all().first()
     image_list = MainImage.objects.all()
-    context = {'latest_news_list': latest_news_list, 'institute':institute, 'image_list':image_list, 'mission':mission}
+    res_list = Research.objects.all()
+    context = {'res_list': res_list, 'latest_news_list': latest_news_list, 'institute':institute, 'image_list':image_list, 'mission':mission}
     return render(request, 'ru/main.html', context)
 
 
@@ -171,7 +172,8 @@ def pages_index(request, name):
 
 def research_index(request):
     institute = Institute.objects.all().first()
-    context = {'area_list': area_list, 'institute':institute}
+    res_list = Research.objects.all()
+    context = {'res_list': res_list, 'institute':institute}
     return render(request, 'ru/research.html', context)
 
 
