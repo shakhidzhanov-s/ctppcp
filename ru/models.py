@@ -166,12 +166,6 @@ class Senate(models.Model):
         return super(Senate, self).save(*args, **kwargs)
 
 
-class Area(models.Model):
-    title = models.CharField(max_length=35)
-    def __str__(self):
-        return self.title
-
-
 class PrInvestigator(models.Model):
     position = models.CharField('rang',max_length=35)
     firstname = models.CharField(max_length=35)
@@ -183,7 +177,6 @@ class PrInvestigator(models.Model):
     pubmed = models.URLField(max_length=50, blank=True)
     photo = models.ImageField(upload_to='images')
     profile = models.TextField('Pr Investigator profile')
-    area = models.ForeignKey(Area, on_delete=models.CASCADE)
     labPhoto = models.ImageField(upload_to='images', blank=True, null=True)
     def __str__(self):
         return self.firstname + ' ' + self.lastname
