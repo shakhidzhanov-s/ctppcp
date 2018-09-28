@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block links %}
-<a class="activelink" href="/ru/research/{{person.nick}}">Исследования</a>
+<a class="activelink" href="/ru/research/{{person.nick}}">О направлении</a>
 <a class="link" href="/ru/research/{{person.nick}}/people">Коллектив</a>
 <a class="link" href="/ru/research/{{person.nick}}/profile">Руководитель</a>
 <a class="link" href="/ru/research/{{person.nick}}/publications">Публикации группы</a>
@@ -19,7 +19,7 @@
 
 {% block site %}
 <div class="overview clearfix">
-  <h1 class="title">Исследования</h1>
+  <h1 class="title">О направлении</h1>
   <div class="description clearfix">
   {{person.research.text|safe}}
   </div>
