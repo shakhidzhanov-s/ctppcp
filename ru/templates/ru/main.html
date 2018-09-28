@@ -57,7 +57,7 @@
       {% if res_list %}
       {% for res in res_list %}
       <div class="area clearfix">
-        <p class="investigator"><a href="/ru/research/{{res.prinvestigator_nick}}">{{res.title}}</a></p>
+        <p class="edulink"><a href="/ru/research/{{res.prinvestigator.nick}}">{{res.title}}</a></p>
       </div>
       {% endfor %}
       {% else %}
