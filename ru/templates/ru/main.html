@@ -57,7 +57,7 @@
       {% if pr_list %}
       <div class="area clearfix">
       {% for pr in pr_list %}
-        <p class="investigator"><a href="/ru/research/{{pr.nick}}">{{!!!}}</a></p>
+        <p class="investigator"><a href="/ru/research/{{pr.nick}}">{{pr.research.title}}</a></p>
       {% endfor %}
       </div>
       {% else %}
