@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import MainImage, Image, Institute, History, Contact, Event, Area, PrInvestigator, Scientist, Staff, Fazly
+from .models import MainImage, Image, Institute, History, Contact, Event, PrInvestigator, Scientist, Staff, Fazly
 from .models import Document, Course, PhDProgram, Mission
 from .models import Page, Position, Research, Etics, Report, Senate, Publication, MainDocs, Attestation, Laboratory
 
@@ -15,7 +15,6 @@ admin.site.register(Contact)
 admin.site.register(Etics)
 admin.site.register(Senate)
 admin.site.register(Event)
-admin.site.register(Area)
 admin.site.register(PrInvestigator)
 admin.site.register(Scientist)
 admin.site.register(Staff)
