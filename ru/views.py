@@ -172,8 +172,8 @@ def pages_index(request, name):
 
 def research_index(request):
     institute = Institute.objects.all().first()
-    res_list = Research.objects.all()
-    context = {'res_list': res_list, 'institute':institute}
+    pr_list = PrInvestigator.objects.all()
+    context = {'pr_list':pr_list, 'institute':institute}
     return render(request, 'ru/research.html', context)
 
 
