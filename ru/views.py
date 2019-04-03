@@ -40,7 +40,7 @@ def news_index(request, pagenum):
 
 
 def positions_index(request):
-    position_list = Position.objects.all()
+    position_list = Position.objects.order_by('-date')
     institute = Institute.objects.all().first()
     context = {'position_list': position_list, 'institute':institute}
     return render(request, 'ru/positions.html', context)
