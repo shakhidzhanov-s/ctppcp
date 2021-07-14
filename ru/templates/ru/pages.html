@@ -11,6 +11,8 @@
 {% endblock %}
 
 {% block links %}
+<a class="link" href="/ru/structure">Лаборатории</a>
+<a class="link" href="/ru/structure/staff">Администрация</a>
 {% for p in page_list %}
 {% if p.pagename == page.pagename %}
 <a class="activelink" href="/ru/pages/{{p.pagename}}">{{p.pagename}}</a>
