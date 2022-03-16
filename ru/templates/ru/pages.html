@@ -11,11 +11,11 @@
 {% endblock %}
 
 {% block links %}
-{% if p.pagename == "ЦКП" %}
+{% if page.pagename == "ЦКП" %}
 <a class="link" href="/ru/structure">Лаборатории</a>
 <a class="link" href="/ru/structure/staff">Администрация</a>
 <a class="activelink" href="/ru/pages/ЦКП">ЦКП</a>
-{% elif p.pagename == "Результаты проектов" %}
+{% elif page.pagename == "Результаты проектов" %}
 <a class="link" href="/ru/research">Научные направления</a>
 <a class="activelink" href="/ru/pages/Результаты проектов">Результаты проектов</a>
 <a class="link" href="/ru/research/etics">НЭК</a>
