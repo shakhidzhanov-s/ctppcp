@@ -11,17 +11,19 @@
 {% endblock %}
 
 {% block links %}
+{% if p.pagename == "ЦКП" %}
 <a class="link" href="/ru/structure">Лаборатории</a>
 <a class="link" href="/ru/structure/staff">Администрация</a>
-{% for p in page_list %}
-{% if p.pagename == page.pagename %}
-<a class="activelink" href="/ru/pages/{{p.pagename}}">{{p.pagename}}</a>
-{% comment %}
+<a class="activelink" href="/ru/pages/ЦКП">ЦКП</a>
+{% if p.pagename == "Результаты проектов" %}
+<a class="link" href="/ru/research">Научные направления</a>
+<a class="activelink" href="/ru/pages/Результаты проектов">Результаты проектов</a>
+<a class="link" href="/ru/research/etics">НЭК</a>
+<a class="link" href="/ru/research/senate">Ученый совет</a>
+<a class="link" href="/ru/research/publications">Публикации</a>
 {% else %}
-<a class="link" href="/ru/pages/{{p.pagename}}">{{p.pagename}}</a>
-{% endcomment %}
+<a class="activelink" href="/ru/pages/{{p.pagename}}">{{p.pagename}}</a>
 {% endif %}
-{% endfor %}
 {% endblock %}
 
 {% block site %}
