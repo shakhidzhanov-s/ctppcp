@@ -235,7 +235,7 @@ class PhDProgram(models.Model):
 
 
 class Page(models.Model):
-    pagename = models.CharField(max_length=22, unique=True)
+    pagename = models.CharField(max_length=25, unique=True)
     pagetext = models.TextField('Text')
     def __str__(self):
         return self.pagename
